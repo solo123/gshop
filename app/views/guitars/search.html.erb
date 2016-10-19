@@ -1,0 +1,15 @@
+<%
+  result = Guitar.where(['model like ?', "%#{params[:q]}%"]).limit(100)
+%>
+<table>
+<% result.each do |guitar| %>
+  <tr id=<%= dom_id guitar %>>
+    <td><%= guitar.brand %></td>
+    <td><%= guitar.model %></td>
+    <td><%= guitar.price %></td>
+    <td><%= link_to 'Select', '#', :onclick => 'guitar_selected(this, product_selected);' %></td>
+  </tr>
+<% end %>
+</table>
+
+

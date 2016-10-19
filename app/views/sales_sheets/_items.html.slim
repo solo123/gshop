@@ -1,0 +1,36 @@
+table.table.table-striped.table-bordered.table-hover id='sales_sheet_items_list' 
+  thead
+    tr
+      th 序列号
+      th Product#
+      th 打印名称
+      th 数量
+      th 价格
+      th 金额
+      th
+      th
+  tbody
+    - sales_sheet.sales_sheet_items.each do |sales_sheet_item|
+      - if sales_sheet.status == 1
+        tr id="#{dom_id(sales_sheet_item)}" 
+          td= sales_sheet_item.serial_number
+          td
+            = sales_sheet_item.product.full_name if sales_sheet_item.product
+          td= sales_sheet_item.description
+          td= sales_sheet_item.quantity
+          td= sales_sheet_item.price
+          td= sales_sheet_item.amount
+          td= sales_sheet_item.actual_amount
+          td
+      - else
+        tr id="#{dom_id(sales_sheet_item)}" 
+          td
+            = best_in_place sales_sheet_item, :serial_number, :type => :input
+          td
+            = sales_sheet_item.product.full_name if sales_sheet_item.product
+          td= best_in_place sales_sheet_item, :description, :type => :input
+          td= best_in_place sales_sheet_item, :quantity, :type => :input
+          td= best_in_place sales_sheet_item, :price, :type => :input
+          td= sales_sheet_item.amount
+          td= sales_sheet_item.actual_amount
+          td= row_icon_link 'Del', sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item), method: :delete, :confirm => 'Are you sure?'

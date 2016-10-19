@@ -1,0 +1,11 @@
+.noprint {display:none;}
+.row{
+  div {float:left;margin-right:10px;}
+}
+
+table.bordered{
+  border-collapse: collapse;
+  td { border:solid 1px black; padding:4px;}
+
+}
+.small {font-size: 70%;}

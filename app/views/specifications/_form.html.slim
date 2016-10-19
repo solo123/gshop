@@ -1,0 +1,10 @@
+= simple_form_for(@object, remote: :true) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :show_order
+    = f.input :spec_title
+    = f.input :status
+
+  .actions
+    = f.button :submit

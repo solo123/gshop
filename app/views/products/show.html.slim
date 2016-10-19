@@ -1,0 +1,44 @@
+.well
+  = link_to 'Back', products_path, class: 'btn btn-default'
+  = link_to 'Edit', edit_product_path(@object), class: 'btn btn-default'
+  = form_tag merge_product_path(@object), style: 'float:right;' do
+    | Merge to:
+    = text_field_tag :merge_to, ''
+    = submit_tag '合并到指定产品', :confirm => '合并后不能撤销，确认吗？'
+
+
+
+p#notice= notice
+p
+  b Brand:
+  = @object.brand
+p
+  b Model:
+  = @object.model
+p
+  b Full name:
+  = @object.full_name
+p
+  b Catalog:
+  = @object.catalog
+- if @object.product_price
+- price = @object.product_price
+  p
+    b Price:
+    = price.price
+  p
+    b Godown count:
+    = price.godown_count
+  p
+    b Godown amount:
+    = price.godown_amount
+  p
+    b Godown fee:
+    = price.godown_fee
+  p
+    b Godown price:
+    = price.godown_price
+p
+  b Status:
+  = @object.status
+

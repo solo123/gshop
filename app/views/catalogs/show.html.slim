@@ -1,0 +1,12 @@
+.container-fluid
+  .col-md-3 style: 'float:left;width: 200px;' 
+    table.table.table-bordered.table-striped.table-hover
+      - @catalog.each do |cat|
+        tr
+          td= link_to cat.catalog, catalog_path(cat: cat.catalog)
+          td
+            span.badge= cat.cnt
+  .col-md-9
+    - if @collection
+      = render 'products'
+

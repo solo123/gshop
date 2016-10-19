@@ -1,0 +1,14 @@
+tr id: "#{dom_id(sales_sheet_item)}" 
+  td
+    = best_in_place sales_sheet_item, :serial_number, :type => :input
+  td
+    = "#{sales_sheet_item.id}#"
+    = sales_sheet_item.product.full_name if sales_sheet_item.product
+  td= best_in_place sales_sheet_item, :description, :type => :input
+  td= best_in_place sales_sheet_item, :quantity, :type => :input
+  td= best_in_place sales_sheet_item, :price, :type => :input
+  td= sales_sheet_item.amount
+  td
+    - unless sales_sheet.status == 1
+      = row_icon_link 'Del', sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item), method: :delete, :confirm => 'Are you sure?'
+

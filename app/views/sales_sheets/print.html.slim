@@ -1,0 +1,84 @@
+.noprint
+  .print-toolbar
+    = link_to '打印', '#', :onclick => 'window.print()'
+= image_tag  'invoice_title.png', :size => '900x155'
+#invoice_number
+  | Invoice#
+  b #{'%02d' % @object.created_at.month}#{'%03d' % @object.id}#{@object.created_at.year.to_s[2..4]}8
+  br/
+  | Date: #{l @object.updated_at, :format => :long}
+- if @object.customer
+  p.info
+    span.prompt Sold to(客戶):
+    = @object.customer.name
+    = @object.customer.title
+    span.prompt Tel(電話):
+    = @object.customer.mobile
+    = @object.customer.phone
+    span.prompt Email(電郵):
+    = @object.customer.email
+table.items
+  thead
+    tr
+      th
+        | Product #
+        br/
+        span.cn 產品編號
+      th
+        | Description
+        br/
+        | 產品描述
+      th
+        | Quantity
+        br/
+        span.cn 數量
+      th
+        | Unit Price
+        br/
+        | 單價
+      th
+        | Line Total
+        br/
+        | 金額
+  tbody
+    - @object.sales_sheet_items.each do |sales_sheet_item|
+      tr
+        td.center
+          - if sales_sheet_item.serial_product
+            = sales_sheet_item.serial_product.serial_number
+          - else
+            = sales_sheet_item.product_data.short_code if sales_sheet_item.product_data
+        td= sales_sheet_item.description
+        td.center= sales_sheet_item.quantity
+        td.right= sales_sheet_item.price
+        td.right= sales_sheet_item.amount
+  tfoot
+    tr
+      td.sum colspan="2"  Total(合計):
+      td.center= @object.total_items
+      td
+      td.right= @object.total_amount
+    tr
+      td.noborder colspan="2" rowspan='3' 
+        = " ** #{@object.info}" unless @object.info.blank?
+        p.small
+          | ** 吉他免费维护和补差价升级期限（不包括配件和其他品牌或特价吉他）：
+          br/
+          | MW手工吉他2年，MW工厂制各型号吉他1年，Butterfly各型号6个月。
+      td.sum colspan="2" 
+      td.right
+    - if @object.discount && @object.discount != 0
+      tr
+        td.noborder.sum colspan="2" nowrap='nowrap'  - Invoice discount(折扣):
+        td.right
+          | -#{@object.discount}
+    tr style=("font-size:110%;line-height: 30px;") 
+      td.sum colspan="2" 
+        b Invoice Amount(合計):
+      td.right
+        b= @object.actual_amount
+p style="text-align:center" 
+  | ** THANK YOU! WE APPRECIATE YOUR BUSINESS **
+  br/
+  | 多謝惠顧！
+  br/

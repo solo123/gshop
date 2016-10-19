@@ -1,0 +1,17 @@
+= form_tag do
+  .toolbar
+    .input-control.text
+      = text_field_tag :q, params[:q], :placeholder => '姓名/电话/Email'
+      button.btn-search
+    = link_to 'Add', new_sales_sheet_customer_path(@parent) + "?q=#{params[:q]}", :class => 'button'
+table
+  - @collection.each do |c|
+    | <tr id=#{dom_id c}
+    td
+      = c.name
+      = c.title
+    td
+      = c.mobile
+      = c.phone
+    td= c.email
+    td= link_to 'Select', url_for([@parent, c]) + '/select'

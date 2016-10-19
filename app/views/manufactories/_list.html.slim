@@ -1,0 +1,29 @@
+h1 Listing manufactories
+table
+  tr
+    th Name
+    th Address
+    th Website
+    th Phone
+    th Email
+    th Bank account
+    th Contact
+    th Rating
+    th
+    th
+    th
+  - @collection.each do |manufactory|
+    tr
+      td= manufactory.name
+      td= manufactory.address
+      td= manufactory.website
+      td= manufactory.phone
+      td= manufactory.email
+      td= manufactory.bank_account
+      td= manufactory.contact
+      td= manufactory.rating
+      td= link_to 'Show', manufactory
+      td= link_to 'Edit', edit_manufactory_path(manufactory)
+      td= link_to 'Destroy', manufactory, method: :delete, data:   confirm: 'Are you sure?'  
+br/
+= link_to 'New Manufactory', new_manufactory_path

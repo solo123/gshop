@@ -1,0 +1,41 @@
+p.bg-color-greenDark.padding10.fg-color-white.toolbox
+  b Serial Products
+  | \
+  | \#{link_to 'New', new_serial_product_path}
+.page-region
+  .page-region-content
+    = form_tag(batch_add_serial_products_path) do
+      | From: #{text_field_tag :from_serial}
+      | TO: #{text_field_tag :to_serial}
+      | \#{submit_tag 'Batch Add'}
+    = will_paginate @collection
+    table.striped.bordered.hovered
+      thead
+        tr
+          th Serial#
+          th name
+          th model
+          th Photo
+          th Batch#
+          th stock
+          th
+      tbody
+        - @collection.each do |serial_product|
+          tr
+            td= serial_product.serial_number
+            td
+              - if serial_product.product_data
+                - g = serial_product.product_data
+                = link_to "#{g.brand} #{g.model}", object_url(serial_product.product_data)
+              - else
+                = link_to 'Select', serial_product_guitars_path(serial_product)
+            td= serial_product.product_model
+            td= serial_product.title_photo_id
+            td= serial_product.production_batch_id
+            td= serial_product.stock_id
+            td
+              = link_to 'Show', serial_product
+              | \
+              \#{link_to 'Edit', edit_serial_product_path(serial_product)} \
+              | \#{link_to 'Destroy', serial_product, method: :delete, data: { confirm: 'Are you sure?' }}
+    = will_paginate @collection

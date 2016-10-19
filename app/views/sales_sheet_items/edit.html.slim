@@ -1,0 +1,8 @@
+h1 Editing sales_sheet_item
+= render 'form'
+= link_to 'Show', @sales_sheet_item
+| \
+- if @parent
+  = link_to 'Back', url_for(@parent)
+- else
+  = link_to 'Back', sales_sheet_items_path

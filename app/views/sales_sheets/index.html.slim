@@ -1,0 +1,53 @@
+.well
+  .btn-group
+    =link_to '开新单', new_sales_sheet_path, :class => 'btn btn-primary'
+    .btn-group
+      button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown" 
+        | 选择商店
+        span.caret
+      ul.dropdown-menu
+        li= link_to 'ALL', sales_sheets_path
+        - Warehouse.all.each do |shop|
+          li= link_to "#{shop.name} (#{shop.id})", sales_sheets_path(:shop => shop.id)
+    =link_to '重算折扣', calc_discount_sales_sheets_path, class: 'btn btn-primary'
+
+= will_paginate @collection
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th ID#
+      th Date
+      th Customer
+      th Total items
+      th Total amount
+      th Additional fee
+      th Discount
+      th 折扣
+      th Actual amount
+      th Status
+      th Operator
+      th
+  tbody
+    - @collection.each do |sales_sheet|
+      tr
+        td= sales_sheet.id
+        td= sales_sheet.created_at.strftime("%F")
+        td= sales_sheet.customer_id
+        td.num= sales_sheet.total_items
+        td.num= sales_sheet.total_amount
+        td.num= sales_sheet.additional_fee
+        td.num= sales_sheet.discount
+        td.num= number_to_percentage(sales_sheet.discount_rate * 100, precision: 2) if sales_sheet.discount_rate
+        td.num= sales_sheet.actual_amount
+        td= sales_sheet.status
+        td= sales_sheet.operator.nickname if sales_sheet.operator
+        td
+          .btn-group
+            = row_icon_link 'Show', object_url(sales_sheet)
+            |&nbsp;
+            - if sales_sheet.status == 1
+              = row_icon_link '打印', print_sales_sheet_path(sales_sheet), :target => 'print_win'
+            - else
+              = row_icon_link 'Edit', edit_sales_sheet_path(sales_sheet)
+              |&nbsp;
+              = row_icon_link 'Del', object_url(sales_sheet), method: :delete, data: { confirm: 'Are you sure?' }

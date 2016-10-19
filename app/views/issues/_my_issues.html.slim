@@ -1,0 +1,37 @@
+- issues = Issue.active_issues
+- new_issue = Issue.new
+#my_issues_list
+  = form_for new_issue, remote: true do |f|
+    .col-lg-6
+      .input-group
+        = f.text_field :description, class: 'form-control'
+        span.input-group-btn
+          = f.submit 'Add', class: 'btn btn-default'
+          = link_to 'All', issues_path, class: 'btn btn-info'
+
+  table.table.table-bordered.table-striped.table-hover
+    thead
+      tr
+        th Creator
+        th 厂家
+        th Description
+        th Due date
+        th Related Employees
+        th Status
+        th
+    tbody
+      - issues.each do |issue|
+        - issue.due_date = Date.today unless issue.due_date
+        tr
+          td= issue.employee.nickname if issue.employee
+          td= issue.manufactory.name if issue.manufactory
+          td= issue.description
+          td class: "#{issue_date_class(issue.due_date)}" 
+            = l issue.due_date, format: :date
+          td= issue.employees.where.not(id: current_employee.id).map |e| e.nickname .join(',')
+          td= issue.status
+          td
+            = link_to 'Show', issue
+            | \
+            = link_to 'Edit', edit_issue_path(issue) if issue.employee == current_employee
+

@@ -1,0 +1,20 @@
+p#notice= notice
+p
+  b Brand:
+  = @object.brand
+p
+  b Model:
+  = @object.model
+p
+  b Price:
+  = @object.price
+p
+  b Info:
+  = @object.info
+p
+  b Title photo:
+  = @object.title_photo_id
+= render :partial => 'photos/photos', :object => @object
+= link_to 'Edit', edit_guitar_path(@object)
+| \
+| \#{link_to 'Back', guitars_path}

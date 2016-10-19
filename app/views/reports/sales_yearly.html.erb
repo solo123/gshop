@@ -1,0 +1,68 @@
+<%
+  results = SalesSheet.select("created_at, sum(actual_amount) amount, sum(discount) discount").group("strftime('%Y', created_at)").where(status: 1).order('created_at desc')
+	labels = results.map {|r| "\"#{r.created_at.strftime('%Y')}\""}.join(',')
+  amounts = results.map {|r| r.amount}.join(',')
+	diss = results.map {|r| r.discount}.join(',')
+%>
+
+<div class='diagram-container'>
+	<div id='diagram' class='diagram-placeholder'>
+		<canvas id="myChart" width="840" height="400"></canvas>
+	</div>
+</div>
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>日期</th>
+      <th>营业额</th>
+      <th>折扣额</th>
+  </thead>
+  <tbody>
+    <% results.each do |r| %>
+    <tr>
+      <td><%= r.created_at.strftime('%Y.%m') %></td>
+      <td><%= r.amount %></td>
+      <td><%= r.discount %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% content_for :head do %>
+  <script src="/css/Chart.min.js"></script>
+	<%= javascript_tag do %>
+		var lbs = [<%=raw labels %>];
+		var ams = [<%= amounts %>];
+		var dis = [<%= diss %>];
+$(function(){
+    var ctx = $("#myChart").get(0).getContext("2d");
+var data = {
+	labels : lbs,
+	datasets : [
+		{
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+			pointStrokeColor : "#fff",
+			data : dis
+		},
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : ams
+		}
+	]
+  }
+
+  var options = {};
+	new Chart(ctx).Bar(data, options);
+
+});
+
+<% end %>
+<% end %>
+

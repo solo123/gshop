@@ -1,0 +1,9 @@
+doctype html
+html lang="en" 
+  head
+    title Gshop
+    meta content="width=device-width, initial-scale=1.0" name="viewport" 
+      = stylesheet_link_tag 'print_view', :media => :all
+      = stylesheet_link_tag 'print', :media => :print
+  body
+    = yield

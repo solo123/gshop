@@ -1,0 +1,21 @@
+h1 Listing accounting_document_items
+table
+  tr
+    th Brief
+    th Accounting subject
+    th Debit
+    th Credit
+    th
+    th
+    th
+  - @accounting_document_items.each do |accounting_document_item|
+    tr
+      td= accounting_document_item.brief
+      td= accounting_document_item.accounting_subject
+      td= accounting_document_item.debit
+      td= accounting_document_item.credit
+      td= link_to 'Show', accounting_document_item
+      td= link_to 'Edit', edit_accounting_document_item_path(accounting_document_item)
+      td= link_to 'Destroy', accounting_document_item, method: :delete, data:   confirm: 'Are you sure?'  
+br/
+= link_to 'New Accounting document item', new_accounting_document_item_path

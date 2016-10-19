@@ -1,0 +1,17 @@
+h1 Listing specifications
+
+= link_to 'New Specification', new_specification_path, class: 'btn btn-success', remote: :true
+
+= will_paginate @collection
+table.table.table-bordered.table-striped.table-hover
+  tr
+    th Show order
+    th Spec title
+    th Status
+    th
+
+  - @collection.each do |specification|
+    = render partial: 'row', locals: {p: specification}
+
+= will_paginate @collection
+

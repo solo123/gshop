@@ -1,0 +1,92 @@
+<%
+
+		SalesSheet.where('status=1 and discount_rate is null').each do |ss|
+			ss.discount_rate = ss.actual_amount / ss.total_amount
+			ss.sales_sheet_items.each do |i|
+				i.actual_amount = i.amount * ss.discount_rate
+				i.save
+			end
+			ss.save
+		end
+
+  start_date = '2013.01.01'.to_datetime
+  end_date = '2013.12.31'.to_datetime
+  start_date = params[:start_date].to_datetime if params[:start_date]
+  end_date = params[:end_date].to_datetime if params[:end_date]
+
+  if params[:catalog] && !params[:catalog].blank?
+    results = SalesSheetItem.select("products.short_name as product_data_type, sum(quantity) as quantity, sum(amount) as amount, sum(actual_amount) as actual_amount").where(created_at: start_date..end_date).where("products.catalog like \"#{params[:catalog]}%\"").joins(:product).group('products.short_name')
+  else
+    results = SalesSheetItem.select("products.catalog as product_data_type, sum(quantity) as quantity, sum(amount) as amount, sum(actual_amount) as actual_amount").where(created_at: start_date..end_date).joins(:product).group('products.catalog')
+  end
+    
+  sum_quantity = results.inject(0) {|sum, x| sum + x.quantity}
+  sum_amount = results.inject(0) {|sum, x| sum + x.amount}
+  labels = results.map {|r| '"' + r.product_data_type + '"'}.join(',')
+  data_quantity = []
+  data_amount = []
+
+%>
+<%= form_tag({controller: 'reports', action: 'sales_catalog'}, method: 'get') do %>
+  开始日期：<%= text_field_tag :start_date, params[:start_date] %>
+  结束日期：<%= text_field_tag :end_date, params[:end_date] %>
+  类型：<%= select_tag "catalog", "<option value=''>All</option><option value='guitar'>Guitar</option><option value='accessory'>Accessory</option>".html_safe  %>
+  <%= submit_tag 'Go' %>
+<% end -%>
+<h3>Quantity and Amount</h3>
+<div class='diagram-container'>
+	<div id='diagram' class='diagram-placeholder'>
+		<canvas id="myChart1" width="420" height="400"></canvas>
+		<canvas id="myChart2" width="420" height="400"></canvas>
+	</div>
+</div>
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>product</th>
+      <th>quantity</th>
+			<th>actual amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% results.each do |r| %>
+      <%
+        color_r = "%02x" % (rand * 127 + 127)
+        color_g = "%02x" % (rand * 127 + 127)
+        color_b = "%02x" % (rand * 127 + 127)
+        color = '#' + color_r + color_g + color_b
+        data_quantity << "{value : #{r.quantity * 100.0 / sum_quantity}, color : '#{color}'}"
+        data_amount << "{value : #{r.amount * 100.0 / sum_amount}, color : '#{color}'}"
+      %>
+    <tr>
+      <td><span style='color:<%= color %>'><%= "\u2588\u2588" %></span> <%= r.product_data_type %></td>
+      <td class='num'><%= r.quantity %></td>
+			<td class='num'><%= number_with_precision(r.actual_amount, :precision => 2) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% content_for :head do %>
+  <script src="/css/Chart.min.js"></script>
+	<%= javascript_tag do %>
+		var lbs = [<%=raw labels %>];
+$(function(){
+  var ctx = $("#myChart1").get(0).getContext("2d");
+  var data_quantity = [<%=raw data_quantity.join(',') %>];
+  var options = {};
+	new Chart(ctx).Pie(data_quantity, options);
+
+  var ctx = $("#myChart2").get(0).getContext("2d");
+  var data_amount = [<%=raw data_amount.join(',') %>];
+  var options = {};
+	new Chart(ctx).Pie(data_amount, options);
+
+});
+
+<% end %>
+
+<% end %>
+

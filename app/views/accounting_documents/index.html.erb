@@ -1,0 +1,23 @@
+<h1>Listing accounting_documents</h1>
+
+<table>
+  <tr>
+    <th>Operator</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @accounting_documents.each do |accounting_document| %>
+  <tr>
+    <td><%= accounting_document.operator %></td>
+    <td><%= link_to 'Show', accounting_document %></td>
+    <td><%= link_to 'Edit', edit_accounting_document_path(accounting_document) %></td>
+    <td><%= link_to 'Destroy', accounting_document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Accounting document', new_accounting_document_path %>

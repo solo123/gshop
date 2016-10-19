@@ -1,0 +1,13 @@
+p#notice= notice
+p
+  b Short code:
+  = @accounting_subject.short_code
+p
+  b Title:
+  = @accounting_subject.title
+p
+  b Status:
+  = @accounting_subject.status
+= link_to 'Edit', edit_accounting_subject_path(@accounting_subject)
+| \
+| \#{link_to 'Back', accounting_subjects_path}

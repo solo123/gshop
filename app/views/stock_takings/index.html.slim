@@ -1,0 +1,19 @@
+h1 Listing stock_takings
+table
+  tr
+    th Warehouse
+    th Info
+    th Status
+    th
+    th
+    th
+  - @collection.each do |stock_taking|
+    tr
+      td= stock_taking.warehouse_id
+      td= stock_taking.info
+      td= stock_taking.status
+      td= link_to 'Show', stock_taking
+      td= link_to 'Edit', edit_stock_taking_path(stock_taking)
+      td= link_to 'Destroy', stock_taking, method: :delete, data:   confirm: 'Are you sure?'  
+br/
+= link_to 'New Stock taking', new_stock_taking_path

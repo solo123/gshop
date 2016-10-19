@@ -1,0 +1,8 @@
+= simple_form_for @object, html: {class: 'well form-horizontal'} do |f|
+  = f.error_notification
+  = f.input :nickname
+  = f.input :email
+  = f.input :roles
+  = f.input :password
+  = f.input :password_confirmation
+

@@ -1,0 +1,55 @@
+= content_for :head do
+  = javascript_tag do
+    | $(function(){
+    | $('table input').keyup(function(){stock_taking_sum();});
+    | });
+p
+  b Warehouse:
+  = @object.warehouse_id
+p
+  b Info:
+  = @object.info
+p
+  b Status:
+  = @object.status
+= link_to 'Edit', edit_stock_taking_path(@object)
+| \
+=link_to 'Back', stock_takings_path
+| \
+=link_to 'Get stock', get_stock_stock_taking_path(@object)
+| \
+=link_to '入库', entering_stock_taking_path(@object), :confirm => "入库后生成盘亏/盘盈单，并且不再能修改\n\n确定吗？"
+| \
+
+= form_tag(save_quantity_stock_taking_path(@object)) do
+  - cat = nil
+  table.striped.bordered.hovered.sumary
+    thead
+      tr
+        th Product#
+        th Product
+        th On hand
+        th Quantity
+        th Status
+        th
+        th
+        th
+    tbody
+    - @object.stock_taking_items.each do |item|
+      - if cat != item.product.catalog
+        - cat = item.product.catalog
+        tr
+          td colspan: 5 
+            h2= cat
+      tr
+        td= item.product_id
+        td= item.full_name
+        td= item.on_hand
+        td= text_field_tag "items[# item.id ]", item.quantity, :size => '3'
+        td= item.status
+        td= link_to 'Show', item
+        td= link_to 'Edit', edit_stock_taking_stock_taking_item_path(item.stock_taking_id, item)
+        td= link_to 'Destroy', item, method: :delete, data:   confirm: 'Are you sure?'  
+  = submit_tag
+br/
+= link_to 'New Stock taking item', new_stock_taking_stock_taking_item_path(@object)

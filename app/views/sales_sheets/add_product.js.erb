@@ -1,0 +1,15 @@
+<%
+  product = Product.find(params[:product_id])
+  sales_sheet = SalesSheet.find(params[:id])
+  if product && sales_sheet
+    item = sales_sheet.sales_sheet_items.build
+    item.product = product
+    item.quantity = params[:quantity].to_i
+    if product.product_price
+      item.price = product.product_price.price
+      item.amount = item.price * item.quantity
+    end
+    sales_sheet.save
+  end
+%>
+$('#sales_sheet_items_list').replaceWith("<%= j render(partial: 'items', locals: {sales_sheet: sales_sheet}) %>");

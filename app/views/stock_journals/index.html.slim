@@ -1,0 +1,23 @@
+h1 Listing stock_journals
+table.table.table-bordered.table-striped.table-hover
+  tr
+    th Stock
+    th Before
+    th Changed
+    th After
+    th Related
+    th R_id
+    th Detail
+  - @collection.each do |stock_journal|
+    tr
+      td= stock_journal.stock_id
+      td= stock_journal.stock_before
+      td= stock_journal.stock_change
+      td= stock_journal.stock_after
+      td= stock_journal.stock_order_type
+      td= stock_journal.stock_order_id
+      td= link_to '详情', url_for(stock_journal.stock_order), target: '_blank' if stock_journal.stock_order
+br/
+= link_to 'Back', url_for(@parent)
+| \
+| \#{link_to 'Warehouse', warehouse_stocks_path(@parent.warehouse)}

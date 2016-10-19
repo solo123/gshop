@@ -1,0 +1,6 @@
+td.num { text-align: right;}
+th.num { text-align: right;}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: lightyellow;
+}
+

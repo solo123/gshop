@@ -1,0 +1,33 @@
+= form_for([@parent, @object]) do |f|
+  - if @object.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@object.errors.count, "error")
+        | prohibited this guitar from being saved:
+      ul
+        - @object.errors.full_messages.each do |msg|
+          li= msg
+  .input-control.text
+    | Short Code:
+    | \#{f.text_field :short_code}
+  .input-control.text
+    | Brand:
+    | \#{f.text_field :brand}
+  .input-control.text
+    | Guitar type:
+    | \#{f.text_field :guitar_type}
+  .input-control.text
+    | Model:
+    | \#{f.text_field :model}
+  .input-control.text
+    | Price:
+    | \#{f.text_field :price}
+  .input-control.text
+    | Info:
+    | \#{f.text_field :info}
+  .field
+    = f.label :title_photo_id
+    br/
+    = f.number_field :title_photo_id
+  .actions
+    = f.submit

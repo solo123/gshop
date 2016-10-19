@@ -1,0 +1,5 @@
+<%
+  stock = Stock.find(params[:id])
+  cnt = stock.add_serials
+%>
+alert("新加入<%= cnt %>个编号产品。");

@@ -1,0 +1,39 @@
+= form_for(@object) do |f|
+  - if @object.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@object.errors.count, "error")
+        | prohibited this godown_entry from being saved:
+      ul
+        - @object.errors.full_messages.each do |msg|
+          li= msg
+  .field
+    = f.label :godown_date
+    br/
+    = f.text_field :godown_date
+  .field
+    = f.label :manufactory_id
+    br/
+    = f.text_field :manufactory_id
+  .field
+    = f.label :from_warehouse_id
+    br/
+    = f.number_field :from_warehouse_id
+  .field
+    = f.label :to_warehouse_id
+    br/
+    = f.number_field :to_warehouse_id
+  .field
+    = f.label :info
+    br/
+    = f.text_field :info
+  .field
+    = f.label :total_quantity
+    br/
+    = f.number_field :total_quantity
+  .field
+    = f.label :operator
+    br/
+    = f.number_field :operator
+  .actions
+    = f.submit

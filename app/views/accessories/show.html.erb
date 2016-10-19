@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Brand:</b>
+  <%= @object.brand %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @object.name %>
+</p>
+
+<p>
+  <b>Catalog:</b>
+  <%= @object.catalog %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @object.info %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @object.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_accessory_path(@object) %> |
+<%= link_to 'Back', accessories_path %>

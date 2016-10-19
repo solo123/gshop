@@ -1,0 +1,7 @@
+= simple_form_for([@parent, @object]) do |f|
+  = autocomplete_field_tag 'find_product', '', autocomplete_product_name_sales_sheets_path, :update_elements => {:id => '#godown_item_product_id'}, :class => 'form-control', :placeholder => '产品名称快速查找', style: "width:300px;"
+  = f.input :product_id, readonly: true
+  = f.input :quantity
+  = f.input :cost
+  .actions
+    = f.submit

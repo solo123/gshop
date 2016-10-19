@@ -1,0 +1,17 @@
+.name-cards{
+	list-style-type: none;
+	li {
+		width: 300px;
+		height: 174px;
+		overflow: hidden;
+		float: left;
+		text-align: right;
+		margin: 4px;
+
+		.links { font-size: 80%; }
+		.title{ font-size: 130%; font-weight: bold; text-align:left; }
+		.name { font-size: 100%; font-weight: bold;}
+		.info { font-size: 100%; }
+	}
+
+}

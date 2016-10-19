@@ -1,0 +1,74 @@
+<%
+		SalesSheet.where('status=1 and discount_rate is null').each do |ss|
+			ss.discount_rate = ss.actual_amount / ss.total_amount
+			ss.sales_sheet_items.each do |i|
+				i.actual_amount = i.amount * ss.discount_rate
+				i.save
+			end
+			ss.save
+		end
+
+  	results = SalesSheetItem.select("product_id, sum(quantity) as quantity, sum(amount) as amount, sum(actual_amount) as actual_amount").group(:product_id)
+
+%>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>product</th>
+      <th>quantity</th>
+			<th>amount_tot</th>
+      <th>price</th>
+			<th>actual amount</th>
+			<th>actual price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% results.each do |r| %>
+    <tr>
+			<td><%= r.product_id %># <%= r.product.short_name %></td>
+      <td class='num'><%= r.quantity %></td>
+      <td class='num'><%= r.amount %></td>
+			<td class='num'><%= number_with_precision(r.amount / r.quantity, :precision => 2) %></td>
+			<td class='num'><%= number_with_precision(r.actual_amount, :precision => 2) %></td>
+			<td class='num'><%= number_with_precision(r.actual_amount / r.quantity, :precision => 2) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% content_for :head do %>
+  <script src="/css/Chart.min.js"></script>
+
+  
+  <%= javascript_tag do %>
+    var ctx = $("#myChart").get(0).getContext("2d");
+var data = {
+	labels : ["January","February","March","April","May","June","July"],
+	datasets : [
+		{
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+			pointStrokeColor : "#fff",
+			data : [65,59,90,81,56,55,40]
+		},
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : [28,48,40,19,96,27,100]
+		}
+	]
+  }
+
+  var options = {};
+    new Chart(ctx).Line(data, options);
+
+<% end %>
+<% end %>
+

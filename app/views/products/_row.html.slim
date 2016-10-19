@@ -1,0 +1,19 @@
+tr id: "#{dom_id(row)}" 
+  td= row.id
+  td
+    = row.full_name
+    - if row.product_price
+      td.num= best_in_place row.product_price, :price, :type => :input
+      td.num= number_with_precision row.product_price.godown_price, precision: 2
+      td.num # number_with_precision(row.product_price.godown_price * 100 / row.product_price.price, precision: 2) %
+      td.num= row.product_price.godown_count
+      td.num= row.product_price.godown_amount
+      td.num= row.product_price.godown_fee
+      td= row.product_price.status
+      td
+        .btn-group
+          = link_to 'Edit', edit_product_path(row), class: 'btn btn-xs btn-default', remote: :true
+          = link_to 'price', edit_product_price_path(row.product_price), :class => 'btn btn-xs btn-default'
+    - else
+      td colspan="7" = link_to 'Add', add_price_product_price_path(row), :class => 'btn btn-xs btn-default', :remote => true
+

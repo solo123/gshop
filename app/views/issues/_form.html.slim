@@ -1,0 +1,29 @@
+.container
+  = simple_form_for @object, :html => {:class => 'well form-horizontal'}  do |f|
+    .row
+      .col-sm-9
+        = f.error_notification
+        = f.input :description, :as => :text, :input_html => { :rows => 5, :cols => 52 }
+        = f.input :due_date, :as => :string, :input_html => {:class => 'datepicker col-span-3'}
+        = f.input :status, :collection => [["TODO", 1], ['Done', 8]]
+        br
+
+        .form-actions
+          = f.submit "Save", :class => "btn btn-primary"
+          = submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger"
+
+      .col-sm-3
+        .well
+          = f.input :manufactory_id, :as => :string, :input_html => {:class => 'form-control',  :readonly => true, :placeholder => '厂家ID#', style: 'width: 80px;float:left;' }
+          = autocomplete_field_tag 'find_manufactory', '', autocomplete_manufactory_name_issues_path, :update_elements => {:id => '#issue_manufactory_id'}, :class => 'form-control', :placeholder => '厂家名称快速查找', style: "width:150px;"
+          = link_to '查看所有厂家', manufactories_path, target: '_manufacotry'
+          hr
+          = render 'related_employees'
+
+javascript:
+  | $('.datepicker').datepicker({
+      | format: "yyyy-mm-dd",
+      | todayHighlight: true,
+      | todayBtn: 'linked',
+      | autoclose: true
+  | });

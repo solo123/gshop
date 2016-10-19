@@ -1,0 +1,30 @@
+= link_to 'New Issue', new_issue_path
+
+= will_paginate @collection
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th 创建人
+      th 厂家
+      th 详情
+      th 状态
+      th
+  tbody
+    - @collection.each do |issue|
+      tr
+        td
+          = l issue.created_at, format: :long
+          = issue.employee.nickname if issue.employee
+          br/
+          = l issue.due_date, format: :long  if issue.due_date
+          br/
+          - if issue.updated_at
+            strong= l issue.updated_at, format: :long
+        td= issue.manufactory.name if issue.manufactory
+        td= issue.description
+        td= issue.status
+        td
+          = link_to 'Show', issue
+          = link_to 'Edit', edit_issue_path(issue)
+          = link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }
+= will_paginate @collection

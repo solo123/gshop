@@ -1,0 +1,15 @@
+.well
+  = simple_form_for(@object, remote: true) do |f|
+    = f.error_notification
+    = f.input :name
+    = f.input :address
+    = f.input :website
+    = f.input :phone
+    = f.input :email
+    = f.input :bank_account
+    = f.input :contact
+    = f.input :biz_type
+    = f.input :factory_type
+    = f.input :rating
+    .actions
+      = f.submit

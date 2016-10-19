@@ -1,0 +1,20 @@
+p#notice= notice
+p
+  b Sales sheet:
+  = @object.sales_sheet_id
+p
+  b Product data type:
+  = @object.product_data_type
+p
+  b Product data:
+  = @object.product_data_id
+p
+  b Quantity:
+  = @object.quantity
+p
+  b Price:
+  = @object.price
+p
+  b Amount:
+  = @object.amount
+= link_to '返回', url_for(@object.sales_sheet)

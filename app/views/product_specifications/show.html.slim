@@ -1,0 +1,15 @@
+p#notice= notice
+
+p
+  b Product:
+  = @product_specification.product_id
+p
+  b Specification:
+  = @product_specification.specification_id
+p
+  b Spec text:
+  = @product_specification.spec_text
+
+= link_to 'Edit', edit_product_specification_path(@product_specification)
+| \|
+= link_to 'Back', product_specifications_path

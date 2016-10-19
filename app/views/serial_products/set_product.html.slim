@@ -1,0 +1,26 @@
+- @guitars = Guitar.all
+.page-header
+  .page-header-content
+    h2 Set Product
+.page-region
+  .page-region-content
+    table
+      tr
+        th Brand
+        th Type
+        th Model
+        th Price
+        th Info
+        th Title photo
+        th
+      - @guitars.each do |guitar|
+        tr
+          td= guitar.brand
+          td= guitar.guitar_type
+          td= guitar.model
+          td= guitar.price
+          td= guitar.info
+          td= guitar.title_photo_id
+          td= link_to 'Select', set_product_serial_product_path(params[:id]), :method => :put
+    br/
+    = link_to 'New Guitar', new_guitar_path

@@ -1,0 +1,26 @@
+.noprint
+  .print-toolbar
+    = link_to '打印', '#', :onclick => 'window.print()'
+
+table.bordered
+  tr
+    td 公司名称:
+    td
+      b= @object.name
+  tr
+    td 地址:
+    td= @object.address
+  tr
+    td 联系电话:
+    td= @object.phone
+  tr
+    td 联系人:
+    td= @object.contact
+
+.row
+  - @object.customers.each do |customer|
+    .col-md-2
+      b # customer.name} #{customer.title 
+      = customer.mobile
+      = customer.phone
+

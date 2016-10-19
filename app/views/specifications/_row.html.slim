@@ -1,0 +1,9 @@
+tr
+  td= p.show_order
+  td= p.spec_title
+  td= p.status
+  td
+    = link_to 'Show', p, class: 'btn btn-mini', remote: :true
+    = link_to 'Edit', edit_specification_path(p), class: 'btn btn-mini', remote: :true
+    = link_to 'Destroy', p, :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: :true
+

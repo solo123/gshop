@@ -1,0 +1,10 @@
+= simple_form_for(@product_specification) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :product_id
+    = f.input :specification_id
+    = f.input :spec_text
+
+  .actions
+    = f.button :submit

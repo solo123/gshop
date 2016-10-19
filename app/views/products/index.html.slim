@@ -1,0 +1,45 @@
+.well
+  = search_form_for @q, class: 'form-inline' do |f|
+    .form-group
+      = f.label :full_name
+      = f.text_field :full_name_cont
+    .form-group
+      = f.label :catalog
+      = f.text_field :catalog_cont
+    .btn-group
+      = f.submit '查找', class: 'btn btn-default'
+      = link_to '价格表', product_prices_path, :class => 'btn btn-default'
+      - if @parent
+        = link_to '添加', new_serial_product_guitar_path(@parent), :class => 'btn btn-default'
+      - else
+        = link_to '添加产品', new_product_path, :class => 'btn btn-default'
+      = link_to '刷新产品名称', concat_products_path, class: 'btn btn-default', confirm: '你确认要刷新产品名称吗？'
+
+
+= will_paginate @collection
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th ID
+      th Brand
+      th Model
+      th Full name
+      th Catalog
+      th Status
+      th
+  tbody
+    - @collection.each do |product|
+      tr
+        td= product.id
+        td= best_in_place product, :brand, :type => :input
+        td= best_in_place product, :model, :type => :input
+        td= best_in_place product, :full_name, :type => :input
+        td= best_in_place product, :catalog, :type => :input
+        td= product.status
+        td
+          .btn-group
+            = link_to 'Show', product, :class => 'btn btn-mini'
+            = link_to 'Edit', edit_product_path(product), :class => 'btn btn-mini'
+            = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini'
+
+= will_paginate @collection

@@ -1,0 +1,23 @@
+= form_for(@object) do |f|
+  - if @object.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@object.errors.count, "error")
+        | prohibited this accounting_subject from being saved:
+      ul
+        - @object.errors.full_messages.each do |msg|
+          li= msg
+  .field
+    = f.label :short_code
+    br/
+    = f.text_field :short_code
+  .field
+    = f.label :title
+    br/
+    = f.text_field :title
+  .field
+    = f.label :status
+    br/
+    = f.number_field :status
+  .actions
+    = f.submit

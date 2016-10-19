@@ -1,0 +1,16 @@
+p#notice= notice
+p
+  b Brief:
+  = @accounting_document_item.brief
+p
+  b Accounting subject:
+  = @accounting_document_item.accounting_subject
+p
+  b Debit:
+  = @accounting_document_item.debit
+p
+  b Credit:
+  = @accounting_document_item.credit
+= link_to 'Edit', edit_accounting_document_item_path(@accounting_document_item)
+| \
+| \#{link_to 'Back', accounting_document_items_path}

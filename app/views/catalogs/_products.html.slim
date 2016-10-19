@@ -1,0 +1,27 @@
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th ID
+      th Brand
+      th Full name
+      th Price
+      th Status
+      th
+  tbody
+    - @collection.each do |product|
+      tr
+        td= product.id
+        td
+          = best_in_place product, :brand, :type => :input, inner_class: 'w-80'
+          = best_in_place product, :model, :type => :input, inner_class: 'w-80'
+        td= best_in_place product, :full_name, :type => :input
+        td
+          - if product.product_price
+            = best_in_place product.product_price, :price, type: :input, inner_class: 'w-80'
+          - else
+            = link_to 'Add', add_price_product_price_path(product), :class => 'btn btn-xs btn-default', :remote => true
+        td= product.status
+        td
+          .btn-group
+            = row_icon_link 'Edit', edit_product_path(product), remote: true
+

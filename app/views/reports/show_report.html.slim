@@ -1,0 +1,38 @@
+h2 Show REPORT!!!!
+.well
+  = form_tag sales_summary_reports_path, method: :get do
+    .col-md-2
+      = text_field_tag :year, @year
+    .col-md-2
+      = text_field_tag :month, @month
+    .btn-group
+      = submit_tag
+      = submit_tag 'gen'
+
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th Product
+      th Quantity
+      th Sale Amount
+      th Sale Price
+      th List Price
+      th Godown Price
+      th Discount
+      th Cost1
+      th Cost2
+      th Profit
+  tbody
+    - tot_amount = cost1 = cost2 = profit = 0.00
+    - tot_quantity = 0
+    - @report.get_report.each do |row|
+      tr
+        - row.each do |col|
+          - if col
+            td= best_in_place col, :val, type: :input
+          - else
+            td= link_to new_cost_report_col_reports_path
+  tfoot
+    tr
+      td 合计：
+

@@ -1,0 +1,8 @@
+<%
+  sales_sheet = SalesSheet.find(params[:id])
+  unless sales_sheet.status == 1
+    sales_sheet.customer = nil
+    sales_sheet.save
+  end
+%>
+$('#sales_sheet_customer').replaceWith("<%= j render(partial: 'customer_info', locals: {sales_sheet: sales_sheet}) %>");

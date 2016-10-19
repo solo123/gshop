@@ -1,0 +1,29 @@
+<h1>Listing accounting_subjects</h1>
+
+  <%= will_paginate @collection %>
+<table>
+  <tr>
+    <th>Short code</th>
+    <th>Title</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collection.each do |accounting_subject| %>
+  <tr>
+    <td><%= accounting_subject.short_code %></td>
+    <td><%= accounting_subject.title %></td>
+    <td><%= accounting_subject.status %></td>
+    <td><%= link_to 'Show', accounting_subject %></td>
+    <td><%= link_to 'Edit', edit_accounting_subject_path(accounting_subject) %></td>
+    <td><%= link_to 'Destroy', accounting_subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+  <%= will_paginate @collection %>
+
+<br />
+
+<%= link_to 'New Accounting subject', new_accounting_subject_path %>

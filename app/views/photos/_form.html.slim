@@ -1,0 +1,14 @@
+= form_for([@parent, @object], :html => { :multipart => true }) do |f|
+  - if @object.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@object.errors.count, "error")
+        | prohibited this photo from being saved:
+      ul
+        - @object.errors.full_messages.each do |msg|
+          li= msg
+  = f.file_field :pic
+  - if @object.pic
+    = image_tag @object.pic.url(:medium)
+  .actions
+    = f.submit

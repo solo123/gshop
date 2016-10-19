@@ -1,0 +1,47 @@
+= form_for([@parent, @object]) do |f|
+  - if @object.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@object.errors.count, "error")
+        | prohibited this customer from being saved:
+      ul
+        - @object.errors.full_messages.each do |msg|
+          li= msg
+  .field
+    = f.label :name
+    br/
+    = f.text_field :name
+  .field
+    = f.label :title
+    br/
+    = f.text_field :title
+  .field
+    = f.label :phone
+    br/
+    = f.text_field :phone
+  .field
+    = f.label :email
+    br/
+    = f.text_field :email
+  .field
+    = f.label :qq
+    br/
+    = f.text_field :qq
+  .field
+    = f.label :address
+    br/
+    = f.text_field :address
+  .field
+    = f.label :level
+    br/
+    = f.number_field :level
+  .field
+    = f.label :info
+    br/
+    = f.text_field :info
+  .field
+    = f.label :reason
+    br/
+    = f.text_field :reason
+  .actions
+    = f.submit

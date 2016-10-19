@@ -1,0 +1,48 @@
+p#notice= notice
+- if flash[:error]
+  .notices
+    .bg-color-red
+      a.close href="#" 
+      .notice-icon
+        i.icon-cancel
+      .notice-image
+        h1.icon-sunrise style="font-size:48px;color:yellow;" 
+      .notice-header 错误信息
+      .notice-text
+        = flash[:error]
+p
+  b 录入日期:
+  = @object.godown_date
+p
+  b 生产厂家:
+  = @object.manufactory.name if @object.manufactory
+p
+  b 发出仓库:
+  = @object.from_warehouse.name if @object.from_warehouse
+p
+  b 入库仓库:
+  = @object.to_warehouse.name if @object.to_warehouse
+p
+  b 说明信息:
+  = @object.info
+p
+  b 入库件数:
+  = @object.total_quantity
+p
+  b 操作人员:
+  = @object.operator
+p
+  b 状态:
+  = @object.status
+= link_to '修改', edit_godown_entry_path(@object)
+| \
+= link_to '返回', godown_entries_path
+| \
+= link_to '新增入库项目', new_godown_entry_godown_item_path(@object)
+| \
+= link_to '检查', calculate_godown_entry_path(@object)
+| \
+= link_to '入库！', entering_godown_entry_path(@object), :confirm => '确认要入库吗？'
+br/
+= render :partial => '/godown_items/items', :object => @object.godown_items
+

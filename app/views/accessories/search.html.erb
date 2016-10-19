@@ -1,0 +1,19 @@
+<%
+  result = Accessory.where(['short_code like ?', "%#{params[:q]}%"]).limit(100)
+%>
+<table>
+<% result.each do |acc| %>
+  <tr id=<%= dom_id acc %>>
+    <td><%= acc.short_code %>
+    <td><%= acc.brand %></td>
+    <td><%= acc.name %></td>
+    <td><%= acc.catalog %></td>
+    <td><%= acc.price %></td>
+    <td><%= acc.info %></td>
+    <td><%= acc.title_photo_id %></td>
+    <td><%= link_to 'Select', '#', :onclick => 'accessory_selected(this);' %></td>
+  </tr>
+<% end %>
+</table>
+
+

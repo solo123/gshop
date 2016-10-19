@@ -1,0 +1,25 @@
+p#notice= notice
+p
+  b Product data type:
+  = @stock.product_data_type
+p
+  b Product data:
+  = @stock.product_data_id
+p
+  b On hand:
+  = @stock.on_hand
+p
+  b Info:
+  = @stock.info
+p
+  b Title photo:
+  = @stock.title_photo_id
+p
+  b Last buy date:
+  = @stock.last_buy_date
+p
+  b Sold out date:
+  = @stock.sold_out_date
+= link_to 'Edit', edit_stock_path(@stock)
+| \
+| \#{link_to 'Back', stocks_path}

@@ -1,0 +1,22 @@
+= link_to 'New Issue', new_issue_path
+- issues.each do |issue|
+  .list-item
+    .bg-primary
+      small= issue.due_date
+      = issue.employee.nickname if issue.employee
+      | (Status:
+      = issue.status
+      | )
+    .bg-info= issue.description
+    .bg-success
+      - issue.notes.each do |n|
+        .well
+          = n.notes_text
+          br
+          small
+            | By:
+            = n.employee.nickname if n.employee
+            | At:
+            time datetime: "#{n.created_at}"  = n.created_at.in_time_zone('Beijing')
+
+

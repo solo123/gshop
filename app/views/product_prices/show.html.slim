@@ -1,0 +1,25 @@
+p#notice= notice
+p
+  b Product:
+  = @object.product_id
+p
+  b Price:
+  = @object.price
+p
+  b Godown count:
+  = @object.godown_count
+p
+  b Godown amount:
+  = @object.godown_amount
+p
+  b Godown fee:
+  = @object.godown_fee
+p
+  b Godown price:
+  = @object.godown_price
+p
+  b Status:
+  = @object.status
+= link_to 'Edit', edit_product_price_path(@object)
+| \
+| \#{link_to 'Back', product_prices_path}

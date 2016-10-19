@@ -1,0 +1,29 @@
+<h1>Listing accounting_document_items</h1>
+
+<table>
+  <tr>
+    <th>Brief</th>
+    <th>Accounting subject</th>
+    <th>Debit</th>
+    <th>Credit</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @accounting_document_items.each do |accounting_document_item| %>
+  <tr>
+    <td><%= accounting_document_item.brief %></td>
+    <td><%= accounting_document_item.accounting_subject %></td>
+    <td><%= accounting_document_item.debit %></td>
+    <td><%= accounting_document_item.credit %></td>
+    <td><%= link_to 'Show', accounting_document_item %></td>
+    <td><%= link_to 'Edit', edit_accounting_document_item_path(accounting_document_item) %></td>
+    <td><%= link_to 'Destroy', accounting_document_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Accounting document item', new_accounting_document_item_path %>

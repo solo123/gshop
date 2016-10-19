@@ -1,0 +1,20 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="/"  MW Guitars
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.active
+          a href="/"  Home
+        li= link_to '销售单', sales_sheets_path
+        li= link_to '产品', catalog_path
+        li= link_to '库存', warehouse_stocks_path(1)
+        li= link_to '报表', reports_path
+        li= link_to '事务', issues_path
+        - if current_employee && current_employee.roles && current_employee.roles.index('admin')
+          li= link_to 'Employees', employees_path
+      = render 'shared/login_indicator'

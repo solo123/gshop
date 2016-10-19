@@ -1,0 +1,19 @@
+p#notice= notice
+p
+  b Godown entry:
+  = @object.godown_entry_id
+p
+  b Product data type:
+  = @object.product_data_type
+p
+  b Product data:
+  = @object.product_data_id
+p
+  b Quantity:
+  = @object.quantity
+p
+  b Status:
+  = @object.status
+= link_to 'Edit', edit_godown_item_path(@object)
+| \
+| \#{link_to 'Back', url_for(@object.godown_entry)}

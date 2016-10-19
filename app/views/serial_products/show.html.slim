@@ -1,0 +1,31 @@
+p#notice= notice
+p
+  b Serial number:
+  = @object.serial_number
+- if @object.product_data
+  - g = @object.product_data
+  p
+    b Product data:
+    = g.guitar_type
+    = g.brand
+    = g.model
+    = link_to 'Change', serial_product_guitars_path(@object)
+  = render :partial => 'photos/photos', :object => @object.product_data
+- else
+  = link_to 'Select', serial_product_guitars_path(@object)
+p
+  b Product name:
+  = @object.product_name
+p
+  b Product model:
+  = @object.product_model
+p
+  b Title photo:
+  = @object.title_photo_id
+= render :partial => 'photos/photos', :object => @object
+p
+  b Production batch:
+  = @object.production_batch_id
+= link_to 'Edit', edit_serial_product_path(@object)
+| \
+| \#{link_to 'Back', serial_products_path}

@@ -1,0 +1,25 @@
+p#notice= notice
+p
+  b Stock taking:
+  = @object.stock_taking_id
+p
+  b Product data type:
+  = @object.product_data_type
+p
+  b Product data:
+  = @object.product_data_id
+p
+  b Full name:
+  = @object.full_name
+p
+  b Catalog:
+  = @object.catalog
+p
+  b Quantity:
+  = @object.quantity
+p
+  b Status:
+  = @object.status
+= link_to 'Edit', edit_stock_taking_item_path(@object)
+| \
+= link_to 'Back', stock_taking_path(@object.stock_taking)

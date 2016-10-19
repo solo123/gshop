@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Brand:</b>
+  <%= @object.brand %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @object.model %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @object.price %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @object.info %>
+</p>
+
+<p>
+  <b>Title photo:</b>
+  <%= @object.title_photo_id %>
+</p>
+
+<%= render :partial => 'photos/photos', :object => @object %>
+
+
+<%= link_to 'Edit', edit_guitar_path(@object) %> |
+<%= link_to 'Back', guitars_path %>

@@ -1,0 +1,7 @@
+p#notice= notice
+p
+  b Operator:
+  = @accounting_document.operator
+= link_to 'Edit', edit_accounting_document_path(@accounting_document)
+| \
+| \#{link_to 'Back', accounting_documents_path}

@@ -1,0 +1,40 @@
+= form_for([@parent, @object]) do |f|
+  - if @object.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@object.errors.count, "error")
+        | prohibited this sales_sheet_item from being saved:
+      ul
+        - @object.errors.full_messages.each do |msg|
+          li= msg
+  .grid
+    .row
+      .span4
+        .field
+          = f.label :serial_number
+          br/
+          = f.text_field :serial_number
+      .span4
+        .field
+          = f.label :product_id
+          br/
+          = f.text_field :product_id, :id => 'product_id'
+        .field
+          = f.label :quantity
+          br/
+          = f.text_field :quantity, :id => 'quantity'
+        = link_to 'Select product', select_products_path, :remote => true
+  .field
+    = f.label :description
+    br/
+    = f.text_field :description
+  .field
+    = f.label :price
+    br/
+    = f.text_field :price
+  .field
+    = f.label :amount
+    br/
+    = f.text_field :amount
+  .actions
+    = f.submit

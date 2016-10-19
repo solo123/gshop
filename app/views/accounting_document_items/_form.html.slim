@@ -1,0 +1,27 @@
+= form_for(@accounting_document_item) do |f|
+  - if @accounting_document_item.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@accounting_document_item.errors.count, "error")
+        | prohibited this accounting_document_item from being saved:
+      ul
+        - @accounting_document_item.errors.full_messages.each do |msg|
+          li= msg
+  .field
+    = f.label :brief
+    br/
+    = f.text_field :brief
+  .field
+    = f.label :accounting_subject
+    br/
+    = f.text_field :accounting_subject
+  .field
+    = f.label :debit
+    br/
+    = f.text_field :debit
+  .field
+    = f.label :credit
+    br/
+    = f.text_field :credit
+  .actions
+    = f.submit

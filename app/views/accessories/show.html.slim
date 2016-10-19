@@ -1,0 +1,19 @@
+p#notice= notice
+p
+  b Brand:
+  = @object.brand
+p
+  b Name:
+  = @object.name
+p
+  b Catalog:
+  = @object.catalog
+p
+  b Info:
+  = @object.info
+p
+  b Price:
+  = @object.price
+= link_to 'Edit', edit_accessory_path(@object)
+| \
+| \#{link_to 'Back', accessories_path}

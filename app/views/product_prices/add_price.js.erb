@@ -1,0 +1,7 @@
+<%
+  p = Product.find(params[:id])
+  price = p.build_product_price
+  price.price = 0.0
+  p.save
+%>
+$('#<%= dom_id(p) %>').replaceWith("<%= j render(partial: 'row', locals: {p: p}) %>");

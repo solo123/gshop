@@ -1,0 +1,29 @@
+<h1>Listing photos</h1>
+
+<table>
+  <tr>
+    <th>Photo data type</th>
+    <th>Photo data</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collection.each do |photo| %>
+  <tr>
+    <td><%= photo.photo_data_type %></td>
+    <td><%= photo.photo_data_id %></td>
+    <td><%= link_to 'Show', photo %></td>
+    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+    <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if @parent %>
+<%= link_to 'Add Photo', url_for(@parent) + '/photos/new' %>
+<% else %>
+<%= link_to 'New Photo', new_photo_path %>
+<% end %>

@@ -1,0 +1,6 @@
+div
+  - photos.photos.each do |photo|
+    - if photo.pic
+      a href=photo.pic.url(:original) target="_photo_win" 
+        = image_tag photo.pic.url(:thumb)
+= link_to 'Add Photo', url_for(photos) + '/photos/new'

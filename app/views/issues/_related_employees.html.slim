@@ -1,0 +1,8 @@
+p Related Employees:
+.checkbox-list
+  - Employee.all.each do |emp|
+    - next if emp.id == current_employee.id
+    = check_box_tag "emp[#{emp.id}]", emp.id, checked = @object.employees.exists?(emp)
+    = label_tag "emp_#{emp.id}", emp.nickname
+    br
+

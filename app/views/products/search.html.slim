@@ -1,0 +1,8 @@
+- result = Product.where(['full_name like :q or catalog like :q', :q => "%#{params[:q]}%"]).limit(100)
+table
+  - result.each do |p|
+    | <tr id=#{dom_id p}
+    td= p.id
+    td= p.full_name
+    td= p.product_price.price if p.product_price
+    td= link_to 'Select', '#', :onclick => 'autocomplete_selected(this, product_selected);'

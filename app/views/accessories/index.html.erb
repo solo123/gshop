@@ -1,0 +1,35 @@
+<h1>Listing accessories</h1>
+<%= link_to 'New Accessory', new_accessory_path %>
+
+    <%= will_paginate @collection %>
+<table>
+  <tr>
+    <th>code</th>
+    <th>Brand</th>
+    <th>Name</th>
+    <th>Catalog</th>
+    <th>Info</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collection.each do |accessory| %>
+  <tr>
+    <td><%= accessory.short_code %></td>
+    <td><%= accessory.brand %></td>
+    <td><%= accessory.name %></td>
+    <td><%= accessory.catalog %></td>
+    <td><%= accessory.info %></td>
+    <td><%= accessory.price %></td>
+    <td><%= link_to 'Show', accessory %></td>
+    <td><%= link_to 'Edit', edit_accessory_path(accessory) %></td>
+    <td><%= link_to 'Destroy', accessory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+    <%= will_paginate @collection %>
+<br />
+

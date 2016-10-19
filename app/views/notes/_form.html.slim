@@ -1,0 +1,5 @@
+= simple_form_for([@parent, @object], html: {class: 'well form-horizontal'}) do |f|
+  = f.error_notification
+  = f.input :notes_text
+  .actions
+    = f.submit

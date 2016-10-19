@@ -1,0 +1,14 @@
+p#notice= notice
+p
+  b Name:
+  = @object.name
+p
+  b Pre code:
+  = @object.pre_code
+p
+  b Status:
+  = @object.status
+= link_to 'Edit', edit_warehouse_path(@object)
+| \
+\#{link_to 'Back', warehouses_path} \
+| \#{link_to '库存', warehouse_stocks_path(@object)}

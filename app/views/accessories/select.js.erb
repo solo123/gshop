@@ -1,0 +1,18 @@
+	$.Dialog({ 
+		'title':   'Serial Accessory', 
+  'content': '<%= j render :partial => 'form_select' %>', 
+		'draggable'   : true,
+        'overlay'     : true,
+        'closeButton' : true,
+        'position': {
+        	'zone' : 'center'
+        },
+		'buttons': { 
+			'Ok' : { 
+				'action' : function(){}
+			} 
+		} 
+	});
+
+find_accessory();
+

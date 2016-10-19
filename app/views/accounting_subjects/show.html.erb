@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Short code:</b>
+  <%= @accounting_subject.short_code %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @accounting_subject.title %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @accounting_subject.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_accounting_subject_path(@accounting_subject) %> |
+<%= link_to 'Back', accounting_subjects_path %>

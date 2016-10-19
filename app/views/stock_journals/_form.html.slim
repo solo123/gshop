@@ -1,0 +1,27 @@
+= form_for(@stock_journal) do |f|
+  - if @stock_journal.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@stock_journal.errors.count, "error")
+        | prohibited this stock_journal from being saved:
+      ul
+        - @stock_journal.errors.full_messages.each do |msg|
+          li= msg
+  .field
+    = f.label :stock_id
+    br/
+    = f.number_field :stock_id
+  .field
+    = f.label :stock_before
+    br/
+    = f.number_field :stock_before
+  .field
+    = f.label :stock_godown
+    br/
+    = f.number_field :stock_godown
+  .field
+    = f.label :stock_after
+    br/
+    = f.number_field :stock_after
+  .actions
+    = f.submit

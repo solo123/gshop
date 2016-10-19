@@ -1,0 +1,71 @@
+= link_to 'Edit', edit_manufactory_path(@object)
+| \
+= link_to 'Back', manufactories_path
+| \
+= link_to '打印', print_manufactory_path(@object), target: 'print_win'
+
+p
+  b Name:
+  = @object.name
+p
+  b Address:
+  = @object.address
+p
+  b Website:
+  = @object.website
+p
+  b Phone:
+  = @object.phone
+p
+  b Email:
+  = @object.email
+p
+  b Bank account:
+  = @object.bank_account
+p
+  b Rating:
+  = @object.rating
+p
+  b Contact:
+  = @object.contact
+p
+  b Biz type:
+  = @object.biz_type
+p
+  b Factory type:
+  = @object.factory_type
+table.table.table-bordered.table-striped.table-hover
+  tr
+    th Name
+    th Title
+    th Mobile
+    th Phone
+    th Email
+    th Qq
+    th Address
+    th Level
+    th Info
+    th Reason
+    th
+  - @object.customers.each do |customer|
+    tr
+      td= customer.name
+      td= customer.title
+      td= customer.mobile
+      td= customer.phone
+      td= customer.email
+      td= customer.qq
+      td= customer.address
+      td= customer.level
+      td= customer.info
+      td= customer.reason
+      td
+        = link_to 'Edit', edit_customer_path(customer)
+        | \
+        = link_to 'Remove', remove_customer_manufactory_path(@object, :customer => customer.id), method: :delete, confirm: 'Are you sure?'
+= form_tag(add_customer_manufactory_path(@object), :remote => true, :class => 'form-inline', :role => 'form') do
+  = autocomplete_field_tag 'find_customer', '', autocomplete_customer_name_manufactories_path, :update_elements => {:id => '#customer-id'}, :class => 'form-control', :placeholder => 'Search by name / tel', style: "width:300px;"
+  = text_field_tag 'customer_id', '', :class => 'form-control',  :readonly => true, :placeholder => '联系人ID#', style: 'width: 80px'
+  = submit_tag  'add contact', :class => 'btn btn-info'
+
+= render 'issues/related_issues', issues: @object.issues

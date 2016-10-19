@@ -1,0 +1,47 @@
+.well
+  = form_tag sales_employee_reports_path, method: :get do
+    .col-md-2
+      = text_field_tag :year, @year
+    .col-md-2
+      = text_field_tag :month, @month
+    .btn-group
+      = submit_tag
+
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th Employee
+      th Items
+      th Total Amount
+      th Discount
+      th Actual Amount
+      th Additional fee
+      th commission(12%)
+  tbody
+    - tot_amount = additional_fee = discount = actual_amount = 0.00
+    - tot_items = 0
+    - @collection.each do |s|
+      - tot_amount += s.total_amount
+      - tot_items += s.total_items
+      - additional_fee += s.additional_fee
+      - discount += s.discount
+      - actual_amount += s.actual_amount
+      tr
+        td= s.operator.nickname
+        td.num= s.total_items
+        td.num= number_with_precision s.total_amount, precision: 2, delimiter: ','
+        td.num= number_with_precision s.discount, precision: 2, delimiter: ','
+        td.num= number_with_precision s.actual_amount, precision: 2, delimiter: ','
+        td.num= number_with_precision s.additional_fee, precision: 2, delimiter: ','
+        td.num= number_with_precision (s.actual_amount - s.additional_fee) * 0.12, precision: 2, delimiter: ','
+  tfoot
+    tr
+      td 合计：
+      td.num= tot_items
+      td.num= number_with_precision tot_amount, precision: 2, delimiter: ','
+      td.num= number_with_precision discount, precision: 2, delimiter: ','
+      td.num= number_with_precision actual_amount, precision: 2, delimiter: ','
+      td.num= number_with_precision additional_fee, precision: 2, delimiter: ','
+      td.num= number_with_precision (actual_amount - additional_fee) * 0.12, precision: 2, delimiter: ','
+
+

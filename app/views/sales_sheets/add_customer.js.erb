@@ -1,0 +1,14 @@
+<%
+  sales_sheet = SalesSheet.find(params[:id])
+  customer = nil
+  if params[:customer_id].blank?
+    customer = sales_sheet.build_customer
+    customer.phone = params[:customer_phone]
+    customer.name = params[:customer_name]
+    customer.title = params[:customer_title]
+  else
+    sales_sheet.customer = Customer.find(params[:customer_id])
+  end
+  sales_sheet.save
+%>
+$('#sales_sheet_customer').replaceWith("<%= j render(partial: 'customer_info', locals: {sales_sheet: sales_sheet}) %>");

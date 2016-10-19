@@ -1,0 +1,39 @@
+= form_for(@object) do |f|
+  - if @object.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@object.errors.count, "error")
+        | prohibited this serial_product from being saved:
+      ul
+        - @object.errors.full_messages.each do |msg|
+          li= msg
+  .input-control.text
+    | Serial number
+    | \#{f.text_field :serial_number}
+  .input-control.text
+    | Product Name
+    | \#{f.text_field :product_name}
+  = link_to 'Set Product', serial_product_guitars_path(@object) if @object.id
+  .input-control.select
+    | Guitar
+    | \#{f.label :product_data_type}
+    br/
+    = f.text_field :product_data_type
+  .field
+    = f.label :product_data_id
+    br/
+    = f.number_field :product_data_id
+  .field
+    = f.label :product_model
+    br/
+    = f.text_field :product_model
+  .field
+    = f.label :title_photo_id
+    br/
+    = f.number_field :title_photo_id
+  .field
+    = f.label :production_batch_id
+    br/
+    = f.number_field :production_batch_id
+  .actions
+    = f.submit

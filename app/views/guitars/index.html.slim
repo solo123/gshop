@@ -1,0 +1,34 @@
+p.bg-color-greenDark.padding10.fg-color-white.toolbox
+  - if @parent
+    = link_to 'New Guitar', new_serial_product_guitar_path(@parent)
+  - else
+    = link_to 'New Guitar', new_guitar_path
+= will_paginate @collection
+table
+  tr
+    th code
+    th Brand
+    th Type
+    th Model
+    th Price
+    th Info
+    th Title photo
+    th
+    th
+    th
+  - @collection.each do |guitar|
+    tr
+      td= guitar.short_code
+      td= guitar.brand
+      td= guitar.guitar_type
+      td= guitar.model
+      td= guitar.price
+      td= guitar.info
+      td= guitar.title_photo_id
+      - if @parent
+        td= link_to 'Select', serial_product_guitar_path(@parent, guitar)
+      - else
+        td= link_to 'Show', guitar
+        td= link_to 'Edit', edit_guitar_path(guitar)
+        td= link_to 'Destroy', guitar, method: :delete, data:   confirm: 'Are you sure?'  
+= will_paginate @collection

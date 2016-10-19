@@ -1,0 +1,39 @@
+= search_form_for @q do |f|
+  = f.text_field :name_or_address_or_contact_cont, :placeholder => 'Search by name / contacts / address'
+  = f.submit
+- fcat = Manufactory.select('factory_type').group(:factory_type)
+.well
+  .btn-group
+    = link_to '添加', new_manufactory_path, :class => 'btn btn-default', remote: true
+    .btn-group
+      button.btn.btn-default.dropdown-toggle type: "button", 'data-toggle' => "dropdown" 
+        | 选择分类
+        span.caret
+      ul.dropdown-menu
+        li= link_to 'ALL', manufactories_path
+        - fcat.each do |c|
+          li= link_to c.factory_type, manufactories_path + "?q[factory_type_cont]=# c.factory_type "
+= will_paginate @collection
+table.table.table-bordered.table-striped.table-hover
+  tr
+    th Name
+    th Contact
+    th Biz Type
+    th Phone
+    th Factory Type
+    th web address
+    th
+  - @collection.each do |m|
+    tr
+      td= m.name
+      td= m.contact
+      td= m.biz_type
+      td= m.phone
+      td= m.factory_type
+      td # m.website} #{m.address 
+      td
+        .btn-group
+          = link_to 'Show', m
+          = link_to 'Edit', edit_manufactory_path(m)
+          = link_to 'Del', m, method: :delete, data: { confirm: 'Are you sure?' }
+= will_paginate @collection

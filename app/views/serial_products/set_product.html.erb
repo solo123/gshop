@@ -1,0 +1,42 @@
+<%
+  @guitars = Guitar.all
+%>
+<div class="page-header">
+  <div class="page-header-content">
+    <h2>Set Product</h2>
+  </div>
+</div>
+
+<div class="page-region">
+  <div class="page-region-content">
+<table>
+  <tr>
+    <th>Brand</th>
+    <th>Type</th>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Info</th>
+    <th>Title photo</th>
+    <th></th>
+  </tr>
+
+<% @guitars.each do |guitar| %>
+  <tr>
+    <td><%= guitar.brand %></td>
+    <td><%= guitar.guitar_type %></td>
+    <td><%= guitar.model %></td>
+    <td><%= guitar.price %></td>
+    <td><%= guitar.info %></td>
+    <td><%= guitar.title_photo_id %></td>
+    <td><%= link_to 'Select', set_product_serial_product_path(params[:id]), :method => :put %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Guitar', new_guitar_path %>
+  </div>
+</div>
+
+

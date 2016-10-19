@@ -1,0 +1,55 @@
+.tool-bar
+  = link_to 'Edit', edit_customer_path(@object)
+  | \
+  | \#{link_to 'Back', customers_path}
+
+p#notice= notice
+p
+  b Name:
+  = @object.name
+p
+  b Title:
+  = @object.title
+p
+  b Mobile:
+  = @object.mobile
+p
+  b Phone:
+  = @object.phone
+p
+  b Email:
+  = @object.email
+p
+  b Qq:
+  = @object.qq
+p
+  b Address:
+  = @object.address
+p
+  b Level:
+  = @object.level
+p
+  b Info:
+  = @object.info
+p
+  b Reason:
+  = @object.reason
+
+.relative-data
+  table.table.table-bordered.table-striped.table-hover
+    thead
+      tr
+        th ID
+        th 下单日期
+        th 数量
+        th 合计金额
+        th 折扣
+        th 实际金额
+    - @object.sales_sheets.each do |s|
+      tr
+        td= link_to s.id, object_url(s)
+        td= s.created_at
+        td= s.total_items
+        td= s.total_amount
+        td= s.discount
+        td= s.actual_amount

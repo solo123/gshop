@@ -1,0 +1,37 @@
+.well
+  = search_form_for @q, class: 'form-inline' do |f|
+    .form-group
+      = f.label :name
+      = f.text_field :name_cont
+    .form-group
+      = f.label :phone
+      = f.text_field :phone_cont
+    .btn-group
+      = f.submit '查找', class: 'btn btn-default'
+      = link_to 'New Customer', new_customer_path, class: 'btn btn-default'
+= will_paginate @collection
+table.table.table-bordered.table-striped.table-hover
+  tr
+    th Name
+    th Phone
+    th Email/QQ
+    th Address
+    th Level
+    th Info
+    th Reason
+    th
+  - @collection.each do |customer|
+    tr
+      td # customer.name} #{customer.title 
+      td= customer.phone
+      td # customer.email} / #{customer.qq 
+      td= customer.address
+      td= customer.level
+      td= customer.info
+      td= customer.reason
+      td
+        .btn-group
+          = link_to 'Show', customer
+          = link_to 'Edit', edit_customer_path(customer)
+          = link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }
+= will_paginate @collection

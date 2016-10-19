@@ -1,0 +1,16 @@
+p#notice= notice
+p
+  b Stock:
+  = @stock_journal.stock_id
+p
+  b Stock before:
+  = @stock_journal.stock_before
+p
+  b Stock godown:
+  = @stock_journal.stock_godown
+p
+  b Stock after:
+  = @stock_journal.stock_after
+= link_to 'Edit', edit_stock_journal_path(@stock_journal)
+| \
+| \#{link_to 'Back', stock_journals_path}

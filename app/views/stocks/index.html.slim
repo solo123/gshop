@@ -1,0 +1,46 @@
+h1 库存清单(# @parent.name )
+.well
+  = link_to 'Correct', correct_warehouse_path(@parent), :class => 'btn btn-default', remote: true
+  .btn-group
+    button.btn.btn-default.dropdown-toggle type: "button", 'data-toggle' => "dropdown" 
+      | 选择仓库
+      span.caret
+    ul.dropdown-menu
+      li= link_to 'ALL', sales_sheets_path
+      - Warehouse.all.each do |shop|
+        li= link_to "# shop.id} - #{shop.name ", warehouse_stocks_path(shop.id)
+- total_on_hand = 0
+- total_amount = 0.0
+table.table.table-bordered.table-striped.table-hover
+  tr
+    th Catalog
+    th Product
+    th On hand
+    th Cost
+    th Amount
+    th Info
+    th Title photo
+    th Last buy date
+    th Sold out date
+    th
+  - @collection.each do |stock|
+    - total_amount += stock.product.product_price.godown_price * stock.on_hand
+    - total_on_hand += stock.on_hand
+    tr
+      td= stock.catalog
+      td # stock.product_id} - #{stock.full_name 
+      td.num= stock.on_hand
+      td.num= number_with_precision stock.product.product_price.godown_price, precision: 2
+      td.num= number_with_precision stock.product.product_price.godown_price * stock.on_hand, precision: 2
+      td= stock.info
+      td= stock.title_photo_id
+      td= stock.last_buy_date
+      td= stock.sold_out_date
+      td
+        =link_to '详情', stock_stock_journals_path(stock), target: '_blank'
+  tr
+    th colspan: '2'  Total Amount
+    th.num= total_on_hand
+    th
+    th.num= number_with_precision total_amount, precision: 2
+= link_to '返回', url_for(@parent)  if @parent

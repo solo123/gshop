@@ -1,0 +1,8 @@
+- result = Guitar.where(['model like ?', "%#{params[:q]}%"]).limit(100)
+table
+  - result.each do |guitar|
+    | <tr id=#{dom_id guitar}
+    td= guitar.brand
+    td= guitar.model
+    td= guitar.price
+    td= link_to 'Select', '#', :onclick => 'guitar_selected(this, product_selected);'

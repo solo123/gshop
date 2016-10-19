@@ -1,0 +1,19 @@
+p#notice= notice
+p
+  strong Notes data type:
+  = @note.notes_data_type
+p
+  strong Notes data:
+  = @note.notes_data_id
+p
+  strong Notes text:
+  = @note.notes_text
+p
+  strong Employee:
+  = @note.employee_id
+p
+  strong Status:
+  = @note.status
+= link_to 'Edit', edit_note_path(@note)
+| \
+| \#{link_to 'Back', notes_path}

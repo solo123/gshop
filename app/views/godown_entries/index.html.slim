@@ -1,0 +1,30 @@
+h1 入库单
+= link_to '新入库单', new_godown_entry_path
+= will_paginate @collection
+table.table.table-bordered.table-striped.table-hover
+  tr
+    th 入库日期
+    th 厂家
+    th From warehouse
+    th To warehouse
+    th Info
+    th Total items
+    th 操作人
+    th 状态
+    th
+  - @collection.each do |godown_entry|
+    tr
+      td= godown_entry.godown_date
+      td= godown_entry.manufactory_id
+      td= godown_entry.from_warehouse_id
+      td= godown_entry.to_warehouse_id
+      td= godown_entry.info
+      td= godown_entry.total_quantity
+      td= godown_entry.operator
+      td= godown_entry.status
+      td
+        = link_to 'Show', godown_entry
+        = link_to 'Edit', edit_godown_entry_path(godown_entry)
+        = link_to 'Destroy', godown_entry, method: :delete, data: { confirm: 'Are you sure?' }
+= will_paginate @collection
+br/

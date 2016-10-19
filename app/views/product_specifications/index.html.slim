@@ -1,0 +1,23 @@
+h1 Listing product_specifications
+
+table
+  tr
+    th Product
+    th Specification
+    th Spec text
+    th
+    th
+    th
+
+  - @product_specifications.each do |product_specification|
+    tr
+      td= product_specification.product_id
+      td= product_specification.specification_id
+      td= product_specification.spec_text
+      td= link_to 'Show', product_specification
+      td= link_to 'Edit', edit_product_specification_path(product_specification)
+      td= link_to 'Destroy', product_specification, :method => :delete, :data =>   confirm=('Are you sure?' ) 
+
+br
+
+= link_to 'New Product specification', new_product_specification_path

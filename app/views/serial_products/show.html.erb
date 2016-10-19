@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Serial number:</b>
+  <%= @object.serial_number %>
+</p>
+<% if @object.product_data %>
+  <% g = @object.product_data %>
+  <p>
+    <b>Product data:</b>
+    <%= g.guitar_type %> <%= g.brand %> <%= g.model %>
+    <%= link_to 'Change', serial_product_guitars_path(@object) %>
+  </p>
+  <%= render :partial => 'photos/photos', :object => @object.product_data %>
+<% else %>
+  <%= link_to 'Select', serial_product_guitars_path(@object) %>
+<% end %>
+<p>
+  <b>Product name:</b>
+  <%= @object.product_name %>
+</p>
+
+<p>
+  <b>Product model:</b>
+  <%= @object.product_model %>
+</p>
+
+<p>
+  <b>Title photo:</b>
+  <%= @object.title_photo_id %>
+</p>
+<%= render :partial => 'photos/photos', :object => @object %>
+<p>
+  <b>Production batch:</b>
+  <%= @object.production_batch_id %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_serial_product_path(@object) %> |
+<%= link_to 'Back', serial_products_path %>

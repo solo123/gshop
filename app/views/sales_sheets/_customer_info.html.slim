@@ -1,0 +1,18 @@
+#sales_sheet_customer
+  b Customer:
+  - if sales_sheet.customer
+    = sales_sheet.customer.name
+    = sales_sheet.customer.title
+    | Tel:
+    = sales_sheet.customer.phone
+    - unless sales_sheet.status == 1
+      = link_to '(remove 重设顾客)', reset_customer_sales_sheet_path(sales_sheet), :remote => true
+  - else
+    = form_tag(add_customer_sales_sheet_path(sales_sheet), :remote => true, :class => 'form-inline', role: 'form') do
+      = autocomplete_field_tag 'customer_phone', '', autocomplete_customer_phone_sales_sheets_path, :update_elements => {:id => '#customer_id', :name => '#customer_name', :title => '#customer_title'}, class: 'form-control', style: 'width:300px'
+      = text_field_tag 'customer_id', '', style: 'width:80px;', :readonly => true, placeholder: '客户ID#', class: 'form-control'
+      = text_field_tag 'customer_name', '', :placeholder => '姓名', style: 'width:80px;', class: 'form-control'
+      = text_field_tag 'customer_title', '', :placeholder => '称呼', style: 'width:80px;', class: 'form-control'
+      = submit_tag '设定客户', class: 'btn btn-info'
+
+

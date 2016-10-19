@@ -1,0 +1,23 @@
+h1 Listing stock_taking_items
+table
+  tr
+    th Stock taking
+    th Product data type
+    th Product data
+    th Quantity
+    th Status
+    th
+    th
+    th
+  - @stock_taking_items.each do |stock_taking_item|
+    tr
+      td= stock_taking_item.stock_taking_id
+      td= stock_taking_item.product_data_type
+      td= stock_taking_item.product_data_id
+      td= stock_taking_item.quantity
+      td= stock_taking_item.status
+      td= link_to 'Show', stock_taking_item
+      td= link_to 'Edit', edit_stock_taking_item_path(stock_taking_item)
+      td= link_to 'Destroy', stock_taking_item, method: :delete, data:   confirm: 'Are you sure?'  
+br/
+= link_to 'New Stock taking item', new_stock_taking_item_path

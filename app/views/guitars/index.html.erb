@@ -1,0 +1,44 @@
+<p class='bg-color-greenDark padding10 fg-color-white toolbox'>
+<% if @parent %>
+  <%= link_to 'New Guitar', new_serial_product_guitar_path(@parent) %>
+<% else %>
+  <%= link_to 'New Guitar', new_guitar_path %>
+<% end %>
+</p>
+    <%= will_paginate @collection %>
+<table>
+  <tr>
+    <th>code</th>
+    <th>Brand</th>
+    <th>Type</th>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Info</th>
+    <th>Title photo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collection.each do |guitar| %>
+  <tr>
+    <td><%= guitar.short_code %></td>
+    <td><%= guitar.brand %></td>
+    <td><%= guitar.guitar_type %></td>
+    <td><%= guitar.model %></td>
+    <td><%= guitar.price %></td>
+    <td><%= guitar.info %></td>
+    <td><%= guitar.title_photo_id %></td>
+    <% if @parent %>
+      <td><%= link_to 'Select', serial_product_guitar_path(@parent, guitar) %></td>
+    <% else %>
+    <td><%= link_to 'Show', guitar %></td>
+    <td><%= link_to 'Edit', edit_guitar_path(guitar) %></td>
+    <td><%= link_to 'Destroy', guitar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+
+    <%= will_paginate @collection %>
+

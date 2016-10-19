@@ -1,0 +1,22 @@
+<%
+  stock = Stock.find(params[:id])
+  cnt = stock.serial_products.count
+  ss = stock.serial_products.map{|s| s.serial_number}.join(',')
+%>
+alert('ooo');
+return;
+$.Dialog({ 
+  'title':   '编号产品共<%= cnt %>个', 
+  'content': '<%= ss %>', 
+  'draggable'   : true,
+  'overlay'     : true,
+  'closeButton' : true,
+  'position': {
+    'zone' : 'center'
+  },
+  'buttons': { 
+    'Ok' : { 
+      'action' : function(){}
+    } 
+  } 
+});

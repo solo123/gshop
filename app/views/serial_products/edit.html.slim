@@ -1,0 +1,9 @@
+.page-header
+  .page-header-content
+    h2 Editing serial_product
+.page-region
+  .page-region-content
+    = render 'form'
+    = link_to 'Show', @serial_product
+    | \
+    | \#{link_to 'Back', serial_products_path}

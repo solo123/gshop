@@ -1,0 +1,37 @@
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th 产品
+      th 价格
+      th 数量
+      th 单价
+      th 金额
+      th 状态
+      th
+  tbody
+    - tot_num = 0
+    - tot_amount = 0.0
+    - items.each do |godown_item|
+      tr
+        td= link_to godown_item.product.full_name, edit_product_path(godown_item.product), :target => 'win_edit' if godown_item.product
+        td.num= godown_item.product.product_price.price if godown_item.product.product_price
+        td.num= godown_item.quantity
+        td.num= godown_item.cost / godown_item.quantity
+        td.num= godown_item.cost
+        td.num= godown_item.status
+        td
+          = link_to 'Edit', edit_godown_item_path(godown_item)
+          = link_to 'Destroy', godown_entry_godown_item_path(godown_item.godown_entry, godown_item), method: :delete, :confirm => '确认要删除吗？'
+      - tot_num += godown_item.quantity
+      - tot_amount += godown_item.cost
+  tfoot
+    tr
+      th 合计
+      th
+      th.num= tot_num
+      th
+      th.num= tot_amount
+      th
+      th
+br/
+

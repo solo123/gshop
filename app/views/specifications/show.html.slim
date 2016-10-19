@@ -1,0 +1,15 @@
+p#notice= notice
+
+p
+  b Show order:
+  = @specification.show_order
+p
+  b Spec text:
+  = @specification.spec_text
+p
+  b Status:
+  = @specification.status
+
+= link_to 'Edit', edit_specification_path(@specification)
+| \|
+= link_to 'Back', specifications_path

@@ -1,0 +1,45 @@
+
+.row
+  .col-md-6
+    .well= @object.description
+
+    p
+      | Due date:
+      strong=l @object.due_date if @object.due_date
+
+      | Created at:
+      strong=l @object.created_at
+      | by:
+      strong= @object.employee.nickname if @object.employee
+      br
+      | Last updated at:
+      strong=l @object.updated_at
+
+    - if @object.manufactory
+      p
+        | Related Factory:
+        strong= link_to @object.manufactory.name, @object.manufactory
+
+    p
+      b Related Employees:
+      br
+      .alert.alert-success
+        - @object.employees.each do |emp|
+          = emp.nickname
+          | ,
+    p
+      = link_to 'Edit', edit_issue_path(@object)
+  .col-md-6
+    h3 Notes:
+    - @object.notes.each do |n|
+      .alert.alert-warning
+        = n.notes_text
+        br
+        | By:
+        = n.employee.nickname if n.employee
+        | At:
+        =l n.created_at
+
+    = link_to 'Add notes', new_issue_note_path(@object), remote: :true
+
+

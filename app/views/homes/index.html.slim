@@ -1,0 +1,49 @@
+.panel.panel-success
+  .panel-heading
+    .row
+      .col-md-3
+        ul.list-group
+          li.list-group-item
+            i.icon-star
+            = link_to '销售单 Sales Sheet', sales_sheets_path
+          li.list-group-item
+            i.icon-star
+            = link_to '产品 Products', products_path
+          li.list-group-item
+            i.icon-star
+            = link_to '厂家 & 供应商', manufactories_path
+          li.list-group-item
+            i.icon-star
+            = link_to '顾客 Customers', customers_path
+          li.list-group-item
+            i.icon-star
+            = link_to '仓库 Warehouses', warehouses_path
+      .col-md-3
+        ul.list-group
+          li.list-group-item
+            i.icon-star
+            = link_to 'Serials 编号产品', serial_products_path
+          li.list-group-item
+            i.icon-star
+            = link_to 'Godown 入库单', godown_entries_path
+          li.list-group-item
+            i.icon-star
+            = link_to 'Stock taking 盘点', stock_takings_path
+      .col-md-3
+        ul.list-group
+          li.list-group-item
+            i.icon-star
+            = link_to '销售月报表', reports_path
+          li.list-group-item
+            i.icon-star
+            = link_to 'Manufactories', accessories_path
+      .col-md-3
+        ul.list-group
+          li.list-group-item
+            i.icon-star
+            a href="http://money.feidee.com/u07/report_index.do" target="_blank"  现金对账
+
+.container
+  .well
+    = render 'issues/my_issues'
+
