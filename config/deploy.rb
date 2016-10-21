@@ -66,8 +66,8 @@ task :deploy do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        command %{echo $PATH}
-        #command %{pumactl --state /home/rb/tmp/pids/puma-#{app_name}.state restart}
+        #command %{echo $PATH}
+        command %{pumactl --state /home/rb/tmp/pids/puma-#{app_name}.state restart}
       end
     end
   end
