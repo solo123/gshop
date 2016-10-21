@@ -51,15 +51,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap'
 gem 'devise'
 gem 'slim'
-gem 'ransack'
 #gem 'kaminari'
-gem 'mina'
-
+gem 'ransack'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'best_in_place'
 gem 'rails4-autocomplete'
-gem "haml-rails"
 gem 'simple_form'
+
+gem 'mina'
 
 #gem 'airbrake'

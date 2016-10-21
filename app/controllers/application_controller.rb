@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :authenticate_employee!
+  before_action :authenticate_employee!
 end

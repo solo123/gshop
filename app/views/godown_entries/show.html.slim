@@ -35,14 +35,13 @@ p
   b 状态:
   = @object.status
 = link_to '修改', edit_godown_entry_path(@object)
-| \
+| |
 = link_to '返回', godown_entries_path
-| \
+| |
 = link_to '新增入库项目', new_godown_entry_godown_item_path(@object)
-| \
+| |
 = link_to '检查', calculate_godown_entry_path(@object)
-| \
+| |
 = link_to '入库！', entering_godown_entry_path(@object), :confirm => '确认要入库吗？'
 br/
 = render :partial => '/godown_items/items', :object => @object.godown_items
-

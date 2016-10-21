@@ -1,5 +1,5 @@
 .container-fluid
-  .col-md-3 style: 'float:left;width: 200px;' 
+  .col-md-3 style='float:left;width: 200px;' 
     table.table.table-bordered.table-striped.table-hover
       - @catalog.each do |cat|
         tr
@@ -9,4 +9,3 @@
   .col-md-9
     - if @collection
       = render 'products'
-
