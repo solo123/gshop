@@ -12,7 +12,7 @@ require 'securerandom'
 
 app_name = 'gshop'
 
-set :domain, 'rb@a.pooulcloud.cn'
+set :domain, 'rb@sz.pooul.cn'
 set :deploy_to, "/home/rb/work/#{app_name}"
 set :repository, "https://github.com/solo123/#{app_name}.git"
 set :branch, 'master'
@@ -24,7 +24,7 @@ set :branch, 'master'
 
 # They will be linked in the 'deploy:link_shared_paths' step.
 # set :shared_dirs, fetch(:shared_dirs, []).push('config')
-set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml', 'config/puma.rb')
+set :shared_files, fetch(:shared_files, []).push('db/gshop.sqlite3', 'config/secrets.yml', 'config/puma.rb')
 
 # This task is the environment that is loaded all remote run commands, such as
 # `mina deploy` or `mina rake`.
@@ -76,7 +76,7 @@ task :deploy do
   # run :local { say 'done' }
 end
 task :clean_shared_files do
-  command %{rm config/database.yml config/puma.rb config/secrets.yml}
+  command %{rm config/puma.rb config/secrets.yml}
 end
 
 task :server_info do
@@ -85,7 +85,7 @@ end
 task :test do
   run :local do
     comment "test #{app_name}!"
-    command %{curl http://a.pooulcloud.cn}
+    command %{curl http://sz.pooul.cn}
   end
 end
 # For help in making your deploy script, see the Mina documentation:
