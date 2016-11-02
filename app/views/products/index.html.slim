@@ -37,8 +37,8 @@ table.table.table-bordered.table-striped.table-hover
         td= best_in_place product, :model, :type => :input
         td= best_in_place product, :full_name, :type => :input
         td= best_in_place product, :catalog, :type => :input
-        td= product.product_price.price if product.product_price
-        td= product.product_price.godown_price if product.product_price
+        td.text-right= number_with_precision(product.product_price.price, precision: 2, separator: '.', delimiter: ',') if product.product_price
+        td.text-right= number_with_precision(product.product_price.godown_price, precision: 2, separator: '.', delimiter: ',') if product.product_price
         td= product.status
         td
           .btn-group
