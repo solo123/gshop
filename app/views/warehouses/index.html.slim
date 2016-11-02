@@ -16,6 +16,6 @@ table.table.table-bordered.table-striped.table-hover
       td= warehouse.status
       td= link_to 'Show', warehouse
       td= link_to 'Edit', edit_warehouse_path(warehouse)
-      td= link_to 'Destroy', warehouse, method: :delete, data:   confirm: 'Are you sure?'  
+      td= link_to 'Destroy', warehouse, method: :delete, data: "confirm: 'Are you sure?'"
 = will_paginate @collection
 br/

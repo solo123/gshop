@@ -1,8 +1,14 @@
 .well
-  = form_tag product_prices_path, method: :get do
-    .col-md-2
-      = select_tag "cat", options_from_collection_for_select(@catalogs, "catalog", "catalog", params[:cat]), class: 'form-control', onchange: 'this.form.submit()'
+  = search_form_for @q, class: 'form-inline' do |f|
+    .form-group
+      = f.label :full_name
+      = f.text_field :full_name_cont
+    .form-group
+      = f.label :catalog
+      = f.text_field :catalog_cont
+
     .btn-group
+      = f.submit '查找', class: 'btn btn-default'
       - if @parent
         = link_to '添加', new_serial_product_guitar_path(@parent), :class => 'btn btn-default'
       - else

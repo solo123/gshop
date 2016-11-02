@@ -14,6 +14,6 @@ table
       td= stock_taking.status
       td= link_to 'Show', stock_taking
       td= link_to 'Edit', edit_stock_taking_path(stock_taking)
-      td= link_to 'Destroy', stock_taking, method: :delete, data:   confirm: 'Are you sure?'  
+      td= link_to 'Destroy', stock_taking, method: :delete, data: "confirm: 'Are you sure?'"
 br/
 = link_to 'New Stock taking', new_stock_taking_path
