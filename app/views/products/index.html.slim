@@ -25,8 +25,9 @@ table.table.table-bordered.table-striped.table-hover
       th Model
       th Full name
       th Catalog
-      th Price
-      th Cost
+      th 价格
+      th 进货价
+      th 处理品
       th Status
       th
   tbody
@@ -38,6 +39,7 @@ table.table.table-bordered.table-striped.table-hover
         td= best_in_place product, :full_name, :type => :input
         td= best_in_place product, :catalog, :type => :input
         td.text-right= number_with_precision(product.product_price.price, precision: 2, separator: '.', delimiter: ',') if product.product_price
+        td.text-right= number_with_precision(product.product_price.godown_price * 1.15, precision: 2, separator: '.', delimiter: ',') if product.product_price
         td.text-right= number_with_precision(product.product_price.godown_price, precision: 2, separator: '.', delimiter: ',') if product.product_price
         td= product.status
         td
