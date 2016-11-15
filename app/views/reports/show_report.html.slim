@@ -26,6 +26,7 @@ table.table.table-bordered.table-striped.table-hover
     - tot_amount = cost1 = cost2 = profit = 0.00
     - tot_quantity = 0
     - @report.get_report.each do |row|
+      - next unless row[0]
       tr
         - row.each do |col|
           - if col
@@ -35,4 +36,3 @@ table.table.table-bordered.table-striped.table-hover
   tfoot
     tr
       td 合计：
-
