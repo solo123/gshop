@@ -14,12 +14,12 @@ table.table.table-bordered.table-striped.table-hover
       tr
         td= product.id
         td
-          = best_in_place product, :brand, :type => :input, inner_class: 'w-80'
-          = best_in_place product, :model, :type => :input, inner_class: 'w-80'
-        td= best_in_place product, :full_name, :type => :input
+          = best_in_place product, :brand, :as => :input, inner_class: 'w-80'
+          = best_in_place product, :model, :as => :input, inner_class: 'w-80'
+        td= best_in_place product, :full_name, :as => :input
         td.text-right
           - if product.product_price
-            = best_in_place product.product_price, :price, type: :input, inner_class: 'w-80'
+            = best_in_place product.product_price, :price, as: :input, inner_class: 'w-80'
           - else
             = link_to 'Add', add_price_product_price_path(product), :class => 'btn btn-xs btn-default', :remote => true
         td.text-right= number_with_precision(product.product_price.godown_price * 1.15, precision: 2, separator: '.', delimiter: ',') if product.product_price
