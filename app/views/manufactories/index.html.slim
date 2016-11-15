@@ -16,24 +16,28 @@
 = will_paginate @collection
 table.table.table-bordered.table-striped.table-hover
   tr
+    th ID
     th Name
     th Contact
     th Biz Type
-    th Phone
     th Factory Type
-    th web address
     th
   - @collection.each do |m|
     tr
+      td rowspan=2
+        = m.id
       td= m.name
       td= m.contact
       td= m.biz_type
-      td= m.phone
       td= m.factory_type
-      td #{m.website} #{m.address}
-      td
+      td rowspan=2
         .btn-group
-          = link_to 'Show', m
-          = link_to 'Edit', edit_manufactory_path(m)
-          = link_to 'Del', m, method: :delete, data: { confirm: 'Are you sure?' }
+          = row_icon_link 'Show', m
+          = row_icon_link 'Edit', edit_manufactory_path(m)
+          = row_icon_link 'Del', m, method: :delete, data: { confirm: 'Are you sure?' }
+    tr
+      td colspan=2
+        = m.phone
+      td colspan=3 #{m.website} #{m.address}
+        
 = will_paginate @collection

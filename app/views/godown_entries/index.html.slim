@@ -5,8 +5,6 @@ table.table.table-bordered.table-striped.table-hover
   tr
     th 入库日期
     th 厂家
-    th From warehouse
-    th To warehouse
     th Info
     th Total items
     th 操作人
@@ -15,16 +13,15 @@ table.table.table-bordered.table-striped.table-hover
   - @collection.each do |godown_entry|
     tr
       td= godown_entry.godown_date
-      td= godown_entry.manufactory_id
-      td= godown_entry.from_warehouse_id
-      td= godown_entry.to_warehouse_id
+      td= "[#{godown_entry.manufactory_id}] #{godown_entry.manufactory.name}" if godown_entry.manufactory
       td= godown_entry.info
       td= godown_entry.total_quantity
       td= godown_entry.operator
       td= godown_entry.status
+      
       td
-        = link_to 'Show', godown_entry
-        = link_to 'Edit', edit_godown_entry_path(godown_entry)
+        = row_icon_link 'Show', godown_entry
+        = row_icon_link 'Edit', edit_godown_entry_path(godown_entry)
         = link_to 'Destroy', godown_entry, method: :delete, data: { confirm: 'Are you sure?' }
 = will_paginate @collection
 br/
