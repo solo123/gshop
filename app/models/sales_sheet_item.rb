@@ -1,8 +1,8 @@
 class SalesSheetItem < ActiveRecord::Base
   belongs_to :product
   belongs_to :sales_sheet
-  belongs_to :product_data, :polymorphic => true
-  belongs_to :serial_product
+  belongs_to :product_data, :polymorphic => true, optional: true
+  belongs_to :serial_product, optional: true
 	before_save :caculate_amount
 
 	private
