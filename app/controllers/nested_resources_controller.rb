@@ -34,7 +34,7 @@ class NestedResourcesController < ResourcesController
   def update
     load_object
     params.permit!
-    @object.attributes = params[object_name.singularize.parameterize('_')]
+    @object.attributes = params[object_name.singularize.parameterize]
     if @object.changed_for_autosave?
       #@changes = @object.all_changes
       if @object.save
@@ -70,11 +70,12 @@ class NestedResourcesController < ResourcesController
     @object = object_name.classify.constantize.find_by_id(params[:id])
   end
   def load_parent
-    parent_id = params.detect {|p| p[0] =~ /^\w+_id$/}
-    if parent_id
-      @parent_object_name = parent_id[0][0..-4]
-      @parent = @parent_object_name.classify.constantize.find(parent_id[1])
-    end
+    @parent = nil
+    # parent_id = params.detect {|p| p[0] =~ /^\w+_id$/}
+    # if parent_id
+    #   @parent_object_name = parent_id[0][0..-4]
+    #   @parent = @parent_object_name.classify.constantize.find(parent_id[1])
+    # end
   end
 end
 

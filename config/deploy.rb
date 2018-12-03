@@ -1,7 +1,7 @@
 require 'mina/rails'
 require 'mina/git'
-# require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
-require 'mina/rvm'    # for rvm support. (https://rvm.io)
+require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
+#require 'mina/rvm'    # for rvm support. (https://rvm.io)
 require 'securerandom'
 
 # Basic settings:
@@ -12,7 +12,7 @@ require 'securerandom'
 
 app_name = 'gshop'
 
-set :domain, 'rb@sz.pooul.cn'
+set :domain, 'rb@sz.gshop'
 set :deploy_to, "/home/rb/work/#{app_name}"
 set :repository, "https://github.com/solo123/#{app_name}.git"
 set :branch, 'master'
@@ -31,10 +31,10 @@ set :shared_files, fetch(:shared_files, []).push('db/gshop.sqlite3', 'config/sec
 task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .ruby-version or .rbenv-version to your repository.
-  # invoke :'rbenv:load'
+  invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use', 'ruby-2.3.1@rails5.0'
+  # invoke :'rvm:use', 'ruby-2.3.1@rails5.0'
 end
 
 # Put any custom commands you need to run at setup

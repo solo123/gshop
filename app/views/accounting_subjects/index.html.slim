@@ -1,5 +1,5 @@
 h1 Listing accounting_subjects
-= will_paginate @collection
+= paginate @collection
 table
   tr
     th Short code
@@ -16,6 +16,6 @@ table
       td= link_to 'Show', accounting_subject
       td= link_to 'Edit', edit_accounting_subject_path(accounting_subject)
       td= link_to 'Destroy', accounting_subject, method: :delete, data:   confirm: 'Are you sure?'  
-= will_paginate @collection
+= paginate @collection
 br/
 = link_to 'New Accounting subject', new_accounting_subject_path

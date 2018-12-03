@@ -1,6 +1,6 @@
 = link_to 'New Employee', new_employee_path, remote: true
 
-= will_paginate @collection
+= paginate @collection
 table.table.table-bordered.table-striped.table-hover
   thead
     tr
@@ -20,6 +20,6 @@ table.table.table-bordered.table-striped.table-hover
           = link_to 'Show', e
           = link_to 'Edit', edit_employee_path(e), remote: true
           = link_to 'Destroy', e, method: :delete, data: { confirm: 'Are you sure?' }
-= will_paginate @collection
+= paginate @collection
 
 = link_to "My Account", myaccount_employees_path

@@ -9,7 +9,7 @@
     .btn-group
       = f.submit '查找', class: 'btn btn-default'
       = link_to 'New Customer', new_customer_path, class: 'btn btn-default'
-= will_paginate @collection
+= paginate @collection
 table.table.table-bordered.table-striped.table-hover
   tr
     th Name
@@ -34,4 +34,4 @@ table.table.table-bordered.table-striped.table-hover
           = link_to 'Show', customer
           = link_to 'Edit', edit_customer_path(customer)
           = link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }
-= will_paginate @collection
+= paginate @collection

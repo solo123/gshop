@@ -1,10 +1,9 @@
 .login-indicator
   - if employee_signed_in?
-    = link_to "(menu)", "#", class: "btn_submenu"
-    | Welcome
+    | 欢迎：
     b
       = link_to current_employee.nickname, myaccount_employees_path
-    | |
-    = link_to('Logout', destroy_employee_session_path, :method => :delete)
+    | &nbsp;|&nbsp;
+    = link_to('退出登录', destroy_employee_session_path, :method => :delete)
   - else
-    = link_to('Login', new_employee_session_path)
+    = link_to('登录', new_employee_session_path)

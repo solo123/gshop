@@ -1,7 +1,7 @@
 <h1>Listing accessories</h1>
 <%= link_to 'New Accessory', new_accessory_path %>
 
-    <%= will_paginate @collection %>
+    <%= paginate @collection %>
 <table>
   <tr>
     <th>code</th>
@@ -30,6 +30,6 @@
 <% end %>
 </table>
 
-    <%= will_paginate @collection %>
+    <%= paginate @collection %>
 <br />
 

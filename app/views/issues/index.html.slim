@@ -1,6 +1,6 @@
 = link_to 'New Issue', new_issue_path
 
-= will_paginate @collection
+= paginate @collection
 table.table.table-bordered.table-striped.table-hover
   thead
     tr
@@ -27,4 +27,4 @@ table.table.table-bordered.table-striped.table-hover
           = link_to 'Show', issue
           = link_to 'Edit', edit_issue_path(issue)
           = link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }
-= will_paginate @collection
+= paginate @collection

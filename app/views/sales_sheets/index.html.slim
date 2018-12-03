@@ -11,7 +11,7 @@
           li= link_to "#{shop.name} (#{shop.id})", sales_sheets_path(:shop => shop.id)
     =link_to '重算折扣', calc_discount_sales_sheets_path, class: 'btn btn-primary'
 
-= will_paginate @collection
+= paginate @collection
 table.table.table-bordered.table-striped.table-hover
   thead
     tr

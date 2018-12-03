@@ -16,7 +16,7 @@
       = link_to '刷新产品名称', concat_products_path, class: 'btn btn-default', confirm: '你确认要刷新产品名称吗？'
 
 
-= will_paginate @collection
+= paginate @collection
 table.table.table-bordered.table-striped.table-hover
   thead
     tr
@@ -44,8 +44,9 @@ table.table.table-bordered.table-striped.table-hover
         td= product.status
         td
           .btn-group
-            = link_to 'Show', product, :class => 'btn btn-mini'
-            = link_to 'Edit', edit_product_path(product), :class => 'btn btn-mini'
-            = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini'
+            = link_to 'Show', product, :class => 'btn btn-xs btn-default'
+            = link_to 'Edit', edit_product_path(product), :class => 'btn btn-xs btn-default'
+            = link_to 'Price', edit_product_price_path(product.product_price), remote: true, :class => 'btn btn-xs btn-default'
+            = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-default'
 
-= will_paginate @collection
+= paginate @collection

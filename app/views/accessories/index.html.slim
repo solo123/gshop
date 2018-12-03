@@ -1,6 +1,6 @@
 h1 Listing accessories
 = link_to 'New Accessory', new_accessory_path
-= will_paginate @collection
+= paginate @collection
 table
   tr
     th code
@@ -23,5 +23,5 @@ table
       td= link_to 'Show', accessory
       td= link_to 'Edit', edit_accessory_path(accessory)
       td= link_to 'Destroy', accessory, method: :delete, data:   confirm: 'Are you sure?'  
-= will_paginate @collection
+= paginate @collection
 br/

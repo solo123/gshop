@@ -1,6 +1,6 @@
 h1 入库单
 = link_to '新入库单', new_godown_entry_path
-= will_paginate @collection
+= paginate @collection
 table.table.table-bordered.table-striped.table-hover
   tr
     th 入库日期
@@ -23,5 +23,5 @@ table.table.table-bordered.table-striped.table-hover
         = row_icon_link 'Show', godown_entry
         = row_icon_link 'Edit', edit_godown_entry_path(godown_entry)
         = link_to 'Destroy', godown_entry, method: :delete, data: { confirm: 'Are you sure?' }
-= will_paginate @collection
+= paginate @collection
 br/

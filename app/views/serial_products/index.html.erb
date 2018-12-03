@@ -10,7 +10,7 @@
       <%= submit_tag 'Batch Add' %>
     <% end %>
 
-    <%= will_paginate @collection %>
+    <%= paginate @collection %>
 <table class='striped bordered hovered'>
   <thead>
       <tr>
@@ -49,6 +49,6 @@
       <% end %>
     </tbody>
     </table>
-    <%= will_paginate @collection %>
+    <%= paginate @collection %>
   </div>
 </div>

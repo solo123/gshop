@@ -28,12 +28,13 @@ class ResourcesController < ApplicationController
 	def update
 		load_object
 		params.permit!
-		@object.attributes = params[object_name.singularize.parameterize('_')]
+		@object.attributes = params[object_name.singularize.parameterize]
 		if @object.changed_for_autosave?
 			#@changes = @object.all_changes
 			if @object.save
 			else
-				flash[:error] = @object.errors.full_messages.to_sentence
+				puts "error!!! #{@object.errors.full_messages.to_sentence}"
+				flash[:alert] = @object.errors.full_messages.to_sentence
 				@no_log = 1
 			end
 		end
@@ -45,7 +46,7 @@ class ResourcesController < ApplicationController
 	end
 	def create
 		params.permit!
-		@object = object_name.classify.constantize.new(params[object_name.singularize.parameterize('_')])
+		@object = object_name.classify.constantize.new(params[object_name.singularize.parameterize])
 		@object.employee = current_employee if @object.attributes.has_key? 'employee_id'
 		@object.creator = current_employee if @object.attributes.has_key? 'creator_id'
 		unless @object.save
@@ -72,7 +73,7 @@ class ResourcesController < ApplicationController
 	def load_collection
 		@q = object_name.classify.constantize.search(params[:q])
 		pages = 20
-		@collection = @q.result(distinct: true).order('id desc').paginate(:page => params[:page], :per_page => pages)
+		@collection = @q.result(distinct: true).order('id desc').page(params[:page])
 	end
 	def load_object
 		@object = object_name.classify.constantize.find_by_id(params[:id])

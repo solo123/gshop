@@ -1,6 +1,6 @@
 h1 Listing warehouses
 = link_to 'New Warehouse', new_warehouse_path
-= will_paginate @collection
+= paginate @collection
 table.table.table-bordered.table-striped.table-hover
   tr
     th Name
@@ -17,5 +17,5 @@ table.table.table-bordered.table-striped.table-hover
       td= link_to 'Show', warehouse
       td= link_to 'Edit', edit_warehouse_path(warehouse)
       td= link_to 'Destroy', warehouse, method: :delete, data: "confirm: 'Are you sure?'"
-= will_paginate @collection
+= paginate @collection
 br/

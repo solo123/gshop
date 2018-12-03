@@ -20,8 +20,7 @@ class ProductPricesController < NestedResourcesController
   end
   def load_collection
     @q = Product.search(params[:q])
-    pages = 20
-    @collection = @q.result(distinct: true).paginate(:page => params[:page], :per_page => pages)
+    @collection = @q.result(distinct: true).page(params[:page])
   end 
   private
   def product_price_params

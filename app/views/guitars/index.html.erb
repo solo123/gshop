@@ -5,7 +5,7 @@
   <%= link_to 'New Guitar', new_guitar_path %>
 <% end %>
 </p>
-    <%= will_paginate @collection %>
+    <%= paginate @collection %>
 <table>
   <tr>
     <th>code</th>
@@ -40,5 +40,5 @@
 <% end %>
 </table>
 
-    <%= will_paginate @collection %>
+    <%= paginate @collection %>
 

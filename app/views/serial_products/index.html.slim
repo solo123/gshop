@@ -8,7 +8,7 @@ p.bg-color-greenDark.padding10.fg-color-white.toolbox
       | From: #{text_field_tag :from_serial}
       | TO: #{text_field_tag :to_serial}
       | \#{submit_tag 'Batch Add'}
-    = will_paginate @collection
+    = paginate @collection
     table.striped.bordered.hovered
       thead
         tr
@@ -38,4 +38,4 @@ p.bg-color-greenDark.padding10.fg-color-white.toolbox
               | \
               \#{link_to 'Edit', edit_serial_product_path(serial_product)} \
               | \#{link_to 'Destroy', serial_product, method: :delete, data: { confirm: 'Are you sure?' }}
-    = will_paginate @collection
+    = paginate @collection

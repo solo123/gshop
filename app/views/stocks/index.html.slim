@@ -1,14 +1,4 @@
-h1 库存清单(#{@parent.name})
-.well
-  = link_to 'Correct', correct_warehouse_path(@parent), :class => 'btn btn-default', remote: true
-  .btn-group
-    button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown" 
-      | 选择仓库
-      span.caret
-    ul.dropdown-menu
-      li= link_to 'ALL', sales_sheets_path
-      - Warehouse.all.each do |shop|
-        li= link_to "#{shop.id} - #{shop.name}", warehouse_stocks_path(shop.id)
+h1 库存清单
 - total_on_hand = 0
 - total_amount = 0.0
 table.table.table-bordered.table-striped.table-hover
@@ -40,4 +30,3 @@ table.table.table-bordered.table-striped.table-hover
     th.num= total_on_hand
     th
     th.num= number_with_precision total_amount, precision: 2
-= link_to '返回', url_for(@parent)  if @parent
