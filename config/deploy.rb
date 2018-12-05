@@ -1,14 +1,7 @@
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
-#require 'mina/rvm'    # for rvm support. (https://rvm.io)
 require 'securerandom'
-
-# Basic settings:
-#   domain       - The hostname to SSH to.
-#   deploy_to    - Path to deploy into.
-#   repository   - Git repo to clone from. (needed by mina/git)
-#   branch       - Branch name to deploy. (needed by mina/git)
 
 app_name = 'gshop'
 
@@ -17,30 +10,15 @@ set :deploy_to, "/home/rb/work/#{app_name}"
 set :repository, "https://github.com/solo123/#{app_name}.git"
 set :branch, 'master'
 
-# Optional settings:
-#   set :user, 'foobar'          # Username in the server to SSH to.
-#   set :port, '30000'           # SSH port number.
-#   set :forward_agent, true     # SSH forward_agent.
-
-# They will be linked in the 'deploy:link_shared_paths' step.
 # set :shared_dirs, fetch(:shared_dirs, []).push('config')
 set :shared_files, fetch(:shared_files, []).push('db/gshop.sqlite3', 'config/secrets.yml', 'config/puma.rb')
 
-# This task is the environment that is loaded all remote run commands, such as
-# `mina deploy` or `mina rake`.
 task :environment do
-  # If you're using rbenv, use this to load the rbenv environment.
-  # Be sure to commit your .ruby-version or .rbenv-version to your repository.
   invoke :'rbenv:load'
-
-  # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use', 'ruby-2.3.1@rails5.0'
 end
 
-# Put any custom commands you need to run at setup
-# All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
-  # command %{rbenv install 2.3.0}
+  command %{rbenv install 2.5.1}
   in_path './work' do
     command %{pwd}
     command %{cp -R app_shared/config #{fetch(:deploy_to)}/shared}
@@ -59,6 +37,7 @@ task :deploy do
     invoke :'git:clone'
     invoke :clean_shared_files
     invoke :'deploy:link_shared_paths'
+    invoke :'rbenv:load'
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'

@@ -2,40 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c660c651-6c63-4a7d-bc1f-867835b81d07" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/nested_resources_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/nested_resources_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/product_prices_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/product_prices_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/resources_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/resources_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/sales_sheets_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/sales_sheets_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/stocks_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/stocks_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/accessories/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/accessories/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/accessories/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/accessories/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/accounting_subjects/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/accounting_subjects/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/accounting_subjects/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/accounting_subjects/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/customers/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/customers/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/employees/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/employees/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/godown_entries/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/godown_entries/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/guitars/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/guitars/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/guitars/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/guitars/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/issues/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/issues/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/manufactories/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/manufactories/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/product_prices/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/product_prices/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/products/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/sales_sheets/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sales_sheets/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/serial_products/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/serial_products/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/serial_products/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/serial_products/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/shared/_footer.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_footer.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/shared/_login_indicator.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_login_indicator.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/shared/_main_menu.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_main_menu.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/specifications/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/specifications/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/stocks/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/stocks/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/warehouses/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/warehouses/index.html.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/deploy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/deploy.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/new_framework_defaults.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/will_paginate.rb" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -55,7 +24,7 @@
       <file leaf-file-name="index.html.slim" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/stocks/index.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
+            <state relative-caret-position="896">
               <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
@@ -70,15 +39,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.slim" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/product_prices/_form.html.slim">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file leaf-file-name="index.html.slim" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/product_prices/index.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
+            <state relative-caret-position="336">
               <caret line="12" selection-start-line="11" selection-end-line="12" />
             </state>
           </provider>
@@ -95,25 +59,32 @@
       </file>
       <file leaf-file-name="show.html.slim" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/products/show.html.slim">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-65" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="index.html.slim" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/products/index.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
+            <state relative-caret-position="1344">
               <caret line="48" column="92" selection-start-line="48" selection-start-column="92" selection-end-line="48" selection-end-column="92" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="deploy.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+            <state relative-caret-position="398">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="35" selection-start-column="35" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -160,7 +131,6 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.slim" />
         <option value="$PROJECT_DIR$/app/controllers/sales_sheets_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js.coffee" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
         <option value="$PROJECT_DIR$/app/controllers/nested_resources_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/resources_controller.rb" />
@@ -173,6 +143,7 @@
         <option value="$PROJECT_DIR$/app/views/shared/_footer.html.slim" />
         <option value="$PROJECT_DIR$/app/views/products/index.html.slim" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -195,6 +166,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,7 +178,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,17 +309,19 @@
       <option name="presentableId" value="Default" />
       <updated>1543807497510</updated>
       <workItem from="1543807498637" duration="4217000" />
-      <workItem from="1543824307939" duration="4180000" />
+      <workItem from="1543824307939" duration="4399000" />
+      <workItem from="1543989424438" duration="476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8397000" />
+    <option name="totallyTimeSpent" value="9092000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -386,6 +359,65 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/views/stocks/index.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/product_prices_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/product_prices/index.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="12" selection-start-line="11" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/product_prices/_row.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="17" column="68" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/products/show.html.slim">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/products/index.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1344">
+          <caret line="48" column="92" selection-start-line="48" selection-start-column="92" selection-end-line="48" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_footer.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sales_sheets_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -404,13 +436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -435,9 +460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/resources_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -459,9 +481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/stock.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/stocks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -471,7 +490,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/stocks/index.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
+        <state relative-caret-position="896">
           <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
@@ -483,17 +502,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/product_prices/_form.html.slim">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/products/show.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/product_prices/index.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
+        <state relative-caret-position="336">
           <caret line="12" selection-start-line="11" selection-end-line="12" />
         </state>
       </provider>
@@ -521,15 +535,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/products/index.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
+        <state relative-caret-position="1344">
           <caret line="48" column="92" selection-start-line="48" selection-start-column="92" selection-end-line="48" selection-end-column="92" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.ruby-version">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+        <state relative-caret-position="398">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="35" selection-start-column="35" selection-end-column="35" />
         </state>
       </provider>
     </entry>
