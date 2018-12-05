@@ -45,8 +45,8 @@ task :deploy do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        #command %{echo $PATH}
-        command %{pumactl --state /home/rb/tmp/pids/puma-#{app_name}.state restart}
+        invoke :'rbenv:load'
+        command %{bundle exec puma}
       end
     end
   end
